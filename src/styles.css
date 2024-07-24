@@ -1,0 +1,12 @@
+body{
+    background-color: rebeccapurple;
+}
+
+#headerSection {
+    display: flex;
+}
+
+#header {
+    font-family: 'Courier New', Courier, monospace;
+
+}
