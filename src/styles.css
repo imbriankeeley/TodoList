@@ -1,12 +1,84 @@
-body{
-    background-color: rebeccapurple;
+body {
+    font-family: 'Courier New', Courier, monospace;
 }
 
 #headerSection {
     display: flex;
+    padding-left: 10px;
 }
 
 #header {
-    font-family: 'Courier New', Courier, monospace;
+    font-size: 50px;
+    margin: none;
+}
 
+#projectSection {
+    display: flex;
+    padding-left: 10px;
+    height: 75px;
+    gap: 20px;
+}
+
+button.projectButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 55px;
+    width: 125px;
+    border-width: 2px;
+    border-radius: 7px;
+
+    background-color: #E4FFD7;
+}
+
+button.projectButton:hover {
+    transform: scale(1.1);
+}
+
+button.projectButton:active {
+    transform: scale(1.2);
+}
+
+#projectButton {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 5px;
+    height: 55px;
+    width: 125px;
+    border-width: 2px;
+    border-radius: 7px;
+
+    background-color: white;
+}
+
+#projectButton:hover {
+    transform: scale(1.1);
+}
+
+#projectButton:active {
+    transform: scale(1.2);
+}
+
+#addProject {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px, solid, black;
+    padding: 2px;
+    border-radius: 7px;
+}
+
+.fa-plus {
+    font-size: 25px;
+}
+
+
+
+
+
+
+#taskSection {
+    display: grid;
+    padding-left: 10px;
 }
