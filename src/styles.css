@@ -1,3 +1,9 @@
+:root {
+    --green: #E4FFD7;
+    --yellow: #FFFBD7;
+    --red: #FFD7D7;
+}
+
 body {
     font-family: 'Courier New', Courier, monospace;
 }
@@ -24,11 +30,11 @@ button.projectButton {
     justify-content: center;
     align-items: center;
     height: 55px;
-    width: 125px;
+    width: 145px;
     border-width: 2px;
     border-radius: 7px;
-
-    background-color: #E4FFD7;
+    cursor: pointer;
+    background-color: var(--green);
 }
 
 button.projectButton:hover {
@@ -42,13 +48,13 @@ button.projectButton:active {
 #projectButton {
     display: flex;
     align-items: center;
-    justify-content: space-around;
-    gap: 5px;
+    justify-content: center;
+    gap: 15px;
     height: 55px;
-    width: 125px;
+    width: 145px;
     border-width: 2px;
     border-radius: 7px;
-
+    cursor: pointer;
     background-color: white;
 }
 
@@ -67,18 +73,137 @@ button.projectButton:active {
     border: 2px, solid, black;
     padding: 2px;
     border-radius: 7px;
+    cursor: pointer;
 }
 
 .fa-plus {
     font-size: 25px;
 }
 
-
-
-
-
-
 #taskSection {
-    display: grid;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
     padding-left: 10px;
+    padding-right: 10px;
+}
+
+.card {
+    background-color: var(--green);
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 7px;
+    position: relative;
+    max-width: 125px;
+    min-height: 175px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    flex: 0 0 125px; 
+    position: relative;
+}
+
+
+
+.taskOptions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 10px;
+}
+
+.taskTitle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+}
+
+.taskTitle h2 {
+    margin: 0;
+}
+
+.taskDescription {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.taskDescription p {
+    margin: 0;
+    font-weight: 700;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.taskDue {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.taskDue p {
+    font-weight: 700;
+}
+
+.taskDone {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.taskDoneButton {
+    cursor: pointer;
+    border: 2px solid black;
+    border-radius: 7px;
+    background-color: var(--green);
+    width: 80%;
+}
+
+.taskDoneButton:hover {
+    transform: scale(1.1);
+}
+
+.taskDoneButton:active {
+    transform: scale(1.2);
+}
+
+.topTaskButtons {
+    cursor: pointer;
+    border: none;
+    background-color: var(--green);
+}
+
+.topTaskButtons:hover {
+    transform: scale(1.1);
+}
+
+.topTaskButtons:active {
+    transform: scale(1.2);
+}
+
+#taskButton {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 10px;
+}
+
+#addTask {
+    cursor: pointer;
+    background-color: white;
+    border-radius: 7px;
+
+}
+
+#addTask:hover {
+    transform: scale(1.1);
+}
+
+#addTask:active {
+    transform: scale(1.2);
 }
