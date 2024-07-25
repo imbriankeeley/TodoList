@@ -10,6 +10,12 @@ import { fab } from '@fortawesome/free-brands-svg-icons'
 
 import './styles.css';
 
+import {addTask} from './task.js'
+
 library.add(fas, far, fab) 
 
 dom.i2svg() 
+
+const taskButton = document.getElementById('taskButton');
+taskButton.addEventListener('click', addTask);
+

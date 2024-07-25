@@ -219,3 +219,171 @@ button.projectButton:active {
 .highUrgency {
     background-color: var(--red);
 }
+
+
+
+
+.popup-form {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    z-index: 1001;
+    width: 600px;
+    height: 400px;
+}
+
+.card-form {
+    padding: 10px;
+}
+
+#formDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 365px;
+}
+
+#closeFormButton {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+#closeFormButton button {
+    border: none;
+    background-color: white;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+#closeFormButton button:hover {
+    transform: scale(1.1);
+}
+
+#closeFormButton button:active {
+    transform: scale(1.2);
+}
+
+#formHeader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#formHeader h1 {
+    font-size: 40px;
+    margin: 0;
+}
+
+#formTitle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    width: 500px;
+}
+
+#title {
+    border: 1px solid black;
+    border-radius: 7px;
+    height: 60px;
+    width: 500px;
+    font-size: 30px;
+    padding-left: 10px;
+}
+
+#formDescription {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    width: 500px;
+}
+
+#description {
+    border: 1px solid black;
+    border-radius: 7px;
+    height: 60px;
+    width: 500px;
+    font-size: 30px;
+    padding-left: 10px;
+}
+
+textarea {
+    resize: none;
+    vertical-align: middle;
+    line-height: 60px;
+}
+
+#formDate {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    width: 500px;
+}
+
+#date {
+    border: 1px solid black;
+    border-radius: 7px;
+    height: 60px;
+    width: 500px;
+    font-size: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#formAddButton {
+    border: 2px solid black;
+    border-radius: 7px;
+    width: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    margin-bottom: 20px;
+}
+
+#formAddButton button {
+    border: none;
+    background-color: white;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+#formAddButton button:hover {
+    transform: scale(1.1);
+}
+
+#formAddButton button:active {
+    transform: scale(1.2);
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.show {
+    display: block;
+}
+
+
+
+
+
+
+
