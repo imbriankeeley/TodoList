@@ -34,7 +34,14 @@ button.projectButton {
     border-width: 2px;
     border-radius: 7px;
     cursor: pointer;
+}
+
+button.selected {
     background-color: var(--green);
+}
+
+button.unselected {
+    background-color: white;
 }
 
 button.projectButton:hover {
@@ -104,8 +111,6 @@ button.projectButton:active {
     flex: 0 0 125px; 
     position: relative;
 }
-
-
 
 .taskOptions {
     display: flex;
@@ -197,7 +202,6 @@ button.projectButton:active {
     cursor: pointer;
     background-color: white;
     border-radius: 7px;
-
 }
 
 #addTask:hover {
@@ -206,4 +210,12 @@ button.projectButton:active {
 
 #addTask:active {
     transform: scale(1.2);
+}
+
+.mediumUrgency {
+    background-color: var(--yellow);
+}
+
+.highUrgency {
+    background-color: var(--red);
 }
