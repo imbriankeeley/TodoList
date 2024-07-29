@@ -6,6 +6,9 @@ const overlay = document.getElementById('overlay');
 export const cardForm = document.getElementById('card-form');
 const closeForm = document.getElementById('closeFormButton');
 const details = document.getElementById('details');
+const selectionTitle = document.getElementById('sTitle');
+const selectionDescription = document.getElementById('sDesc');
+const selectionDate = document.getElementById('sDate');
 
 
 
@@ -43,12 +46,45 @@ function closeTaskForm() {
 
 function closeOverlay() {
     popupForm.classList.remove('show');
-        overlay.classList.remove('show');
+    overlay.classList.remove('show');
 };
 
-export function selectDetails() {
+export function selectDetails(title, description, date) {
+    selectionTitle.innerText = `${title}`;
+    selectionDescription.innerText = `${description}`;
+    selectionDate.innerText = `${date}`;
+
     details.classList.add('show');
     overlay.classList.add('show');
+
 }
+
+export function closeDetails() {
+    details.classList.remove('show');
+    overlay.classList.remove('show');
+}
+
+export function overlayCloseDetails() {
+    details.classList.remove('show');
+    overlay.classList.remove('show');
+}
+
+export function exampleDetails() {
+    selectionTitle.innerText = "Walk dog";
+    selectionDescription.innerText = "Walk dog every 4 hours";
+    selectionDate.innerText = "Due 7/31/24";
+
+    
+
+    details.classList.add('show');
+    overlay.classList.add('show');
+
+
+    overlay.addEventListener('click', overlayCloseDetails);
+    details.addEventListener('click', closeDetails);
+}
+
+
+
 
 

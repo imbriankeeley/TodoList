@@ -1,3 +1,4 @@
+import { selectDetails, closeDetails, overlayCloseDetails } from "./task";
 
 
 
@@ -95,7 +96,13 @@ export function createCard(title, dateString, description) {
     taskDone.append(taskDoneButton);
     taskDoneButton.append(faChec);
 
-    
+    topTaskButtons1.addEventListener('click', function() {
+        selectDetails(titleText.innerText, descriptionText.innerText, dateText.innerText)
+
+        overlay.addEventListener('click', overlayCloseDetails);
+        details.addEventListener('click', closeDetails);
+
+    })
 
     topTaskButtons2.addEventListener('click', () => {
         card.remove();

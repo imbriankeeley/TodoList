@@ -20,7 +20,7 @@
     <div id="taskSection">
         <div id="example" class="card">
             <div class="taskOptions">
-                <button class="topTaskButtons details"><i class="fa-solid fa-ellipsis"></i></button>
+                <button id="exampleSelect" class="topTaskButtons details"><i class="fa-solid fa-ellipsis"></i></button>
                 <button id="removeExample" class="topTaskButtons remove"><i class="fa-solid fa-xmark"></i></button>
             </div>
 
@@ -28,7 +28,7 @@
 
             <div class="taskDescription"><p>Walk every 4 hours</p></div>
 
-            <div class="taskDue"><p>Due 7/31/34</p></div>
+            <div class="taskDue"><p>Due 7/31/24</p></div>
 
             <div class="taskDone"><button id="exampleDone" class="taskDoneButton"><i class="fa-solid fa-check"></i></button></div>
         </div>
@@ -51,8 +51,14 @@
 
     <div id="details" class="popup-form">
         <div class="card-form">
-            <div class="closeFormButton"><button class="closeForm"><i class="fa-solid fa-xmark"></i></button></div>
+            <div class="closeFormButton"><button id="closeDetails" class="closeForm"><i class="fa-solid fa-xmark"></i></button></div>
         </div>
+        <div class="container">
+            <div class="expandTitle"><h1 id="sTitle">Walk dog</h1></div>
+            <div class="expandDescription"><p id="sDesc">Walk dog every 4 hours</p></div>
+            <div class="expandDate"><p id="sDate">Due 7/31/24</p></div>  
+        </div>
+        
     </div>
 
     <div id="overlay" class="overlay"></div>

@@ -389,6 +389,41 @@ textarea {
     display: block;
 }
 
+.closeForm {
+    background-color: white;
+    font-size: 30px;
+    border: none;
+}
+
+.container {
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.expandTitle {
+    font-size: 24px;
+}
+
+.expandDescription {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.expandDate {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+#closeDetails:hover {
+    transform: scale(1.1);
+}
+
+#closeDetails:active {
+    transform: scale(1.2);
+}
 
 
 

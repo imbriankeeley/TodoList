@@ -10,7 +10,7 @@ import { fab } from '@fortawesome/free-brands-svg-icons'
 
 import './styles.css';
 
-import {cardForm, addTask, submitTask, selectDetails} from './task.js'
+import {cardForm, addTask, submitTask, selectDetails, exampleDetails, closeExample} from './task.js'
 import { removeCard, removeExample } from './dom.js'
 
 library.add(fas, far, fab) 
@@ -28,6 +28,6 @@ document.getElementById('exampleDone').addEventListener('click', removeExample);
 
 document.querySelectorAll('.details').forEach(button => {button.addEventListener('click', selectDetails)}) 
 
-
+document.getElementById('exampleSelect').addEventListener('click', exampleDetails)
 
 
