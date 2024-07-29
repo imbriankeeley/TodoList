@@ -57,17 +57,25 @@ export function createCard(title, dateString, description) {
     faChec.classList.add('fa-solid', 'fa-check');
 
     let currentDate = new Date();
+    currentDate.setHours(0, 0, 0, 0);
+    date.setHours(0, 0, 0, 0);
+    date.setDate(date.getDate() + 1);
+
     if (date.getTime() === currentDate.getTime()){
+        console.log('High urgency task detected');
         card.classList.add('highUrgency');
         taskDoneButton.classList.add('highUrgency');
         topTaskButtons1.classList.add('highUrgency');
         topTaskButtons2.classList.add('highUrgency');
     } else if (isTomorrow(currentDate, date)) {
+        console.log('Medium urgency task detected');
         card.classList.add('mediumUrgency');
         taskDoneButton.classList.add('mediumUrgency');
         topTaskButtons1.classList.add('mediumUrgency');
         topTaskButtons2.classList.add('mediumUrgency');
-    };
+    } else {
+        console.log('No urgency task detected');
+    }
 
     
     taskSection.append(card);
@@ -85,33 +93,8 @@ export function createCard(title, dateString, description) {
     card.append(taskDone);
     taskDone.append(taskDoneButton);
     taskDoneButton.append(faChec);
-
-    clearCardData();
 }
 
-function clearCardData() {
-    let date = '';
-    let day = '';
-    let month = '';
-    let year = '';
-    let formattedDate = '';
-
-    let card = '';
-    let taskOptions = '';
-    let topTaskButtons1 = '';
-    let faEllip = '';
-    let topTaskButtons2 = '';
-    let faXmar = '';
-    let taskTitle = '';
-    let titleText = '';
-    let taskDescription = '';
-    let descriptionText = '';
-    let taskDue = '';
-    let dateText = '';
-    let taskDone = '';
-    let taskDoneButton = '';
-    let faChec = '';
-}
 
     
 
