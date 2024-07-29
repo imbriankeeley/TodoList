@@ -72,7 +72,7 @@ export function overlayCloseDetails() {
 export function exampleDetails() {
     selectionTitle.innerText = "Walk dog";
     selectionDescription.innerText = "Walk dog every 4 hours";
-    selectionDate.innerText = "Due 7/31/24";
+    selectionDate.innerText = "Due 7/31/25";
 
     
 

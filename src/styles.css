@@ -67,12 +67,42 @@ button.projectButton:active {
     background-color: white;
 }
 
+#projectButtonDiv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    height: 51px;
+    min-width: 170px;
+    border-width: 2px;
+    border-radius: 7px;
+    cursor: pointer;
+    background-color: white;
+}
+
+.projectBorder {
+    border: 2px solid black;
+}
+
+#projectName {
+    height: 30px;
+    width: 110px;
+    border: 1px solid black;
+    border-radius: 7px;
+    font-size: 16px;
+}
+
 #projectButton:hover {
     transform: scale(1.1);
 }
 
 #projectButton:active {
     transform: scale(1.2);
+}
+
+#projectSection {
+    pointer-events: auto;
+    user-select: auto;
 }
 
 #addProject {

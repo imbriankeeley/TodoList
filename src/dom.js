@@ -80,7 +80,7 @@ export function createCard(title, dateString, description) {
     }
 
     
-    taskSection.append(card);
+    taskSection.insertBefore(card, taskSection.lastChild)
     card.append(taskOptions);
     taskOptions.append(topTaskButtons1);
     taskOptions.append(topTaskButtons2);
@@ -126,4 +126,83 @@ export function createCard(title, dateString, description) {
 
 export function removeExample() {
     document.getElementById('example').remove();
+}
+
+const projectButton = document.getElementById('projectButtonDiv');
+
+function replaceProject() {
+    let button = document.createElement('button');
+    button.id = 'projectButton';
+    let div = document.createElement('div');
+    div.id = 'addProject';
+    let i = document.createElement('i');
+    i.classList.add('fa-solid', 'fa-plus');
+    let h2 = document.createElement('h2');
+    h2.innerText = 'Project';
+
+    while(projectButton.firstChild)
+    projectButton.removeChild(projectButton.firstChild);
+
+    projectButton.append(button);
+    button.append(div);
+    div.append(i);
+    button.append(h2);
+
+    projectButton.classList.remove('projectBorder')
+}
+
+export function addProjectForm() {
+    let inputForm = document.createElement('form');
+    let input = document.createElement('input');
+    let submit = document.createElement('input');
+    input.setAttribute('type', 'text');
+    input.setAttribute('id', 'projectName');
+    input.setAttribute('name', 'projectName');
+    input.setAttribute('maxlength', '10');
+    input.setAttribute('placeholder', 'Project Name...');
+    input.setAttribute('required', '');
+    submit.setAttribute('type', 'submit');
+    submit.setAttribute('style', 'display: none');
+
+    projectButton.append(inputForm);
+    inputForm.append(input);
+    inputForm.append(submit);
+
+    projectButton.classList.add('projectBorder')
+
+    
+    inputForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        replaceProject();
+        let title = input.value;
+        addProject(title);
+    });
+
+}
+
+
+const projectSection = document.getElementById('projectSection');
+
+function addProject (title) {
+    document.querySelectorAll('.projectButton').forEach(button => {
+        if (button.classList.contains('selected')) {
+            button.classList.add('unselected');
+        }
+    })
+    
+    let projectButton = document.createElement('button');
+    projectButton.classList.add('projectButton', 'selected');
+    let h2 = document.createElement('h2');
+    h2.innerText = title;
+
+    
+
+
+
+    projectSection.insertBefore(projectButton, projectSection.lastChild)
+    projectButton.append(h2);
+
+    if(taskSection.children.length > 1){
+        taskSection.removeChild(taskSection.firstChild);
+    }
 }

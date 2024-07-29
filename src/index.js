@@ -12,6 +12,7 @@ import './styles.css';
 
 import {cardForm, addTask, submitTask, selectDetails, exampleDetails, closeExample} from './task.js'
 import { removeCard, removeExample } from './dom.js'
+import { addProject } from './project.js'
 
 library.add(fas, far, fab) 
 
@@ -30,4 +31,5 @@ document.querySelectorAll('.details').forEach(button => {button.addEventListener
 
 document.getElementById('exampleSelect').addEventListener('click', exampleDetails)
 
+document.getElementById('projectButton').addEventListener('click', addProject);
 
