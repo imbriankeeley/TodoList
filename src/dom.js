@@ -57,7 +57,7 @@ export function createCard(title, dateString, description) {
     faChec.classList.add('fa-solid', 'fa-check');
 
     let currentDate = new Date();
-    if (date === currentDate){
+    if (date.getTime() === currentDate.getTime()){
         card.classList.add('highUrgency');
         taskDoneButton.classList.add('highUrgency');
         topTaskButtons1.classList.add('highUrgency');

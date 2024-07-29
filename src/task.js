@@ -3,7 +3,7 @@ import {createCard} from './dom.js'
 
 const popupForm = document.getElementById('popup-form');
 const overlay = document.getElementById('overlay');
-const cardForm = document.getElementById('card-form');
+export const cardForm = document.getElementById('card-form');
 const closeForm = document.getElementById('closeFormButton');
 
 
@@ -14,30 +14,26 @@ export function addTask() {
 
     closeForm.addEventListener('click', closeTaskForm);
     overlay.addEventListener('click', closeOverlay);
+};
 
-
-    //Get data from user after a successful sumbit
-    cardForm.addEventListener('submit', function(event) {
+export function submitTask(event) {
+    //Get data from user after a successful sumbit and add card
         event.preventDefault();
 
         let title = document.getElementById('title').value;
         let date = document.getElementById('date').value;
         let description = document.getElementById('description').value;
 
-        let taskTitle = title;
-        let taskDate = date;
-        let taskDescription = description;
+        createCard(title, date, description);
 
         document.getElementById('title').value = '';
         document.getElementById('date').value = '';
         document.getElementById('description').value = '';
-
-        createCard(taskTitle, taskDate, taskDescription);
-
+        
         closeTaskForm();
         closeOverlay();
-    })
-};
+    }
+
 
 function closeTaskForm() {
     popupForm.classList.remove('show');
