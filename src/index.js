@@ -23,13 +23,14 @@ document.getElementById('taskButton').addEventListener('click', addTask);
 //Get data from user after a successful sumbit and add card
 cardForm.addEventListener('submit', submitTask)
 
-
+//Remove example task
 document.getElementById('removeExample').addEventListener('click', removeExample);
 document.getElementById('exampleDone').addEventListener('click', removeExample);
 
+//Select details for each task
 document.querySelectorAll('.details').forEach(button => {button.addEventListener('click', selectDetails)}) 
-
 document.getElementById('exampleSelect').addEventListener('click', exampleDetails)
 
+//Add project
 document.getElementById('projectButton').addEventListener('click', addProject);
 

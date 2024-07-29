@@ -11,7 +11,7 @@ const selectionDescription = document.getElementById('sDesc');
 const selectionDate = document.getElementById('sDate');
 
 
-
+//Open task form
 export function addTask() {
     popupForm.classList.add('show');
     overlay.classList.add('show');
@@ -20,6 +20,8 @@ export function addTask() {
     overlay.addEventListener('click', closeOverlay);
 };
 
+
+//Submit task
 export function submitTask(event) {
     //Get data from user after a successful sumbit and add card
         event.preventDefault();
@@ -38,7 +40,7 @@ export function submitTask(event) {
         closeOverlay();
     }
 
-
+    
 function closeTaskForm() {
     popupForm.classList.remove('show');
     overlay.classList.remove('show');
