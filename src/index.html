@@ -18,10 +18,10 @@
     </div>
 
     <div id="taskSection">
-        <div class="card">
+        <div id="example" class="card">
             <div class="taskOptions">
-                <button class="topTaskButtons"><i class="fa-solid fa-ellipsis"></i></button>
-                <button class="topTaskButtons"><i class="fa-solid fa-xmark"></i></button>
+                <button class="topTaskButtons details"><i class="fa-solid fa-ellipsis"></i></button>
+                <button id="removeExample" class="topTaskButtons remove"><i class="fa-solid fa-xmark"></i></button>
             </div>
 
             <div class="taskTitle"><h2>Walk dog</h2></div>
@@ -37,8 +37,8 @@
     
 
     <div id="popup-form" class="popup-form">
-        <form id="card-form">
-            <div id="closeFormButton"><button type="button" id="close-form-btn"><i class="fa-solid fa-xmark"></i></button></div>
+        <form id="card-form" class="card-form">
+            <div id="closeFormButton" class="closeForm"><button type="button" class="closeForm" id="close-form-btn"><i class="fa-solid fa-xmark"></i></button></div>
             <div id="formDiv">
                 <div id="formHeader"><h1>Add New Task</h1></div>
                 <div id="formTitle"><input type="text" id="title" name="title" maxlength="8" placeholder="Title (max 8 characters)" required></div>
@@ -47,6 +47,12 @@
                 <div id="formAddButton"><button type="submit">Add To-Do</button></div>
             </div>
         </form>
+    </div>
+
+    <div id="details" class="popup-form">
+        <div class="card-form">
+            <div class="closeFormButton"><button class="closeForm"><i class="fa-solid fa-xmark"></i></button></div>
+        </div>
     </div>
 
     <div id="overlay" class="overlay"></div>

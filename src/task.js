@@ -45,4 +45,8 @@ function closeOverlay() {
         overlay.classList.remove('show');
 };
 
+export function selectDetails() {
+    
+}
+
 

@@ -2,6 +2,10 @@
 
 
 
+function isPast(date, currentDate) {
+    return currentDate > date;
+}
+
 function isTomorrow(currentDate, date) {
     //Setting to midnight to compare only dates
     currentDate.setHours(0, 0, 0, 0);
@@ -20,11 +24,16 @@ const taskSection = document.getElementById('taskSection');
 
 export function createCard(title, dateString, description) {
     let date = new Date(dateString);
+    let currentDate = new Date();
+    currentDate.setHours(0, 0, 0, 0);
+    date.setHours(0, 0, 0, 0);
+    date.setDate(date.getDate() + 1);
     let day = date.getDate();
     let month = date.getMonth() + 1;
     let year = date.getFullYear();
     let formattedDate = `${month}/${day}/${year}`;
 
+    
     let card = document.createElement('div');
     card.classList.add('card');
     let taskOptions = document.createElement('div');
@@ -56,25 +65,17 @@ export function createCard(title, dateString, description) {
     let faChec = document.createElement('i');
     faChec.classList.add('fa-solid', 'fa-check');
 
-    let currentDate = new Date();
-    currentDate.setHours(0, 0, 0, 0);
-    date.setHours(0, 0, 0, 0);
-    date.setDate(date.getDate() + 1);
 
     if (date.getTime() === currentDate.getTime()){
-        console.log('High urgency task detected');
         card.classList.add('highUrgency');
         taskDoneButton.classList.add('highUrgency');
         topTaskButtons1.classList.add('highUrgency');
         topTaskButtons2.classList.add('highUrgency');
     } else if (isTomorrow(currentDate, date)) {
-        console.log('Medium urgency task detected');
         card.classList.add('mediumUrgency');
         taskDoneButton.classList.add('mediumUrgency');
         topTaskButtons1.classList.add('mediumUrgency');
         topTaskButtons2.classList.add('mediumUrgency');
-    } else {
-        console.log('No urgency task detected');
     }
 
     
@@ -93,11 +94,25 @@ export function createCard(title, dateString, description) {
     card.append(taskDone);
     taskDone.append(taskDoneButton);
     taskDoneButton.append(faChec);
+
+    
+
+    topTaskButtons2.addEventListener('click', function(){
+        card.remove();
+    })
+
+    
+
+    if (isPast(date, currentDate)){
+        card.remove();
+        alert(`We can't go back to the future!\nChoose a different date`);
+    }
+
 }
 
 
     
 
-export function removeCard() {
-
+export function removeExample() {
+    document.getElementById('example').remove();
 }

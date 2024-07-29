@@ -258,6 +258,12 @@ button.projectButton:active {
     align-items: center;
 }
 
+.closeFormButton {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
 #closeFormButton button {
     border: none;
     background-color: white;

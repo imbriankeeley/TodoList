@@ -10,7 +10,8 @@ import { fab } from '@fortawesome/free-brands-svg-icons'
 
 import './styles.css';
 
-import {cardForm, addTask, submitTask} from './task.js'
+import {cardForm, addTask, submitTask, selectDetails} from './task.js'
+import { removeExample } from './dom.js'
 
 library.add(fas, far, fab) 
 
@@ -20,5 +21,10 @@ document.getElementById('taskButton').addEventListener('click', addTask);
 
 //Get data from user after a successful sumbit and add card
 cardForm.addEventListener('submit', submitTask)
+
+
+document.getElementById('removeExample').addEventListener('click', removeExample);
+
+document.querySelectorAll('.details').forEach(button => {button.addEventListener('click', selectDetails)}) 
 
 
