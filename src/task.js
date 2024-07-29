@@ -5,6 +5,7 @@ const popupForm = document.getElementById('popup-form');
 const overlay = document.getElementById('overlay');
 export const cardForm = document.getElementById('card-form');
 const closeForm = document.getElementById('closeFormButton');
+const details = document.getElementById('details');
 
 
 
@@ -46,7 +47,8 @@ function closeOverlay() {
 };
 
 export function selectDetails() {
-    
+    details.classList.add('show');
+    overlay.classList.add('show');
 }
 
 

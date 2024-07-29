@@ -97,7 +97,11 @@ export function createCard(title, dateString, description) {
 
     
 
-    topTaskButtons2.addEventListener('click', function(){
+    topTaskButtons2.addEventListener('click', () => {
+        card.remove();
+    })
+
+    taskDoneButton.addEventListener('click', () => {
         card.remove();
     })
 

@@ -11,7 +11,7 @@ import { fab } from '@fortawesome/free-brands-svg-icons'
 import './styles.css';
 
 import {cardForm, addTask, submitTask, selectDetails} from './task.js'
-import { removeExample } from './dom.js'
+import { removeCard, removeExample } from './dom.js'
 
 library.add(fas, far, fab) 
 
@@ -24,7 +24,10 @@ cardForm.addEventListener('submit', submitTask)
 
 
 document.getElementById('removeExample').addEventListener('click', removeExample);
+document.getElementById('exampleDone').addEventListener('click', removeExample);
 
 document.querySelectorAll('.details').forEach(button => {button.addEventListener('click', selectDetails)}) 
+
+
 
 
