@@ -40,7 +40,7 @@ export function submitTask(event) {
         closeOverlay();
     }
 
-    
+//Closing form functionality
 function closeTaskForm() {
     popupForm.classList.remove('show');
     overlay.classList.remove('show');
@@ -51,6 +51,7 @@ function closeOverlay() {
     overlay.classList.remove('show');
 };
 
+//Select details button functionality
 export function selectDetails(title, description, date) {
     selectionTitle.innerText = `${title}`;
     selectionDescription.innerText = `${description}`;
@@ -61,6 +62,7 @@ export function selectDetails(title, description, date) {
 
 }
 
+//Close details functionality
 export function closeDetails() {
     details.classList.remove('show');
     overlay.classList.remove('show');
@@ -71,6 +73,7 @@ export function overlayCloseDetails() {
     overlay.classList.remove('show');
 }
 
+//Open details for example task
 export function exampleDetails() {
     selectionTitle.innerText = "Walk dog";
     selectionDescription.innerText = "Walk dog every 4 hours";

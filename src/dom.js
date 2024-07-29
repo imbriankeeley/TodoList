@@ -1,12 +1,18 @@
 import { selectDetails, closeDetails, overlayCloseDetails } from "./task";
 
 
+const taskSection = document.getElementById('taskSection');
+const projectButton = document.getElementById('projectButtonDiv');
+const projectSection = document.getElementById('projectSection');
 
 
+
+// Check if date is in the past
 function isPast(date, currentDate) {
     return currentDate > date;
 }
 
+// Check if date is tomorrow
 function isTomorrow(currentDate, date) {
     //Setting to midnight to compare only dates
     currentDate.setHours(0, 0, 0, 0);
@@ -21,9 +27,9 @@ function isTomorrow(currentDate, date) {
     return differenceInDays >= 1 && differenceInDays < 2;
 }
 
-const taskSection = document.getElementById('taskSection');
-
+// Create task card and append to html
 export function createCard(title, dateString, description) {
+    // Date variables
     let date = new Date(dateString);
     let currentDate = new Date();
     currentDate.setHours(0, 0, 0, 0);
@@ -34,7 +40,7 @@ export function createCard(title, dateString, description) {
     let year = date.getFullYear();
     let formattedDate = `${month}/${day}/${year}`;
 
-    
+    // Dom variables
     let card = document.createElement('div');
     card.classList.add('card');
     let taskOptions = document.createElement('div');
@@ -67,6 +73,7 @@ export function createCard(title, dateString, description) {
     faChec.classList.add('fa-solid', 'fa-check');
 
 
+    // Urgency functionality for card declaration
     if (date.getTime() === currentDate.getTime()){
         card.classList.add('highUrgency');
         taskDoneButton.classList.add('highUrgency');
@@ -80,6 +87,7 @@ export function createCard(title, dateString, description) {
     }
 
     
+    // Appending to html
     taskSection.insertBefore(card, taskSection.lastChild)
     card.append(taskOptions);
     taskOptions.append(topTaskButtons1);
@@ -96,6 +104,7 @@ export function createCard(title, dateString, description) {
     taskDone.append(taskDoneButton);
     taskDoneButton.append(faChec);
 
+    // Detail button to popup more info
     topTaskButtons1.addEventListener('click', function() {
         selectDetails(titleText.innerText, descriptionText.innerText, dateText.innerText)
 
@@ -104,6 +113,7 @@ export function createCard(title, dateString, description) {
 
     })
 
+    // Complete/remove card
     topTaskButtons2.addEventListener('click', () => {
         card.remove();
     })
@@ -113,7 +123,7 @@ export function createCard(title, dateString, description) {
     })
 
     
-
+    // Restart card if date is in the past
     if (isPast(date, currentDate)){
         card.remove();
         alert(`We can't go back to the future!\nChoose a different date`);
@@ -123,13 +133,12 @@ export function createCard(title, dateString, description) {
 
 
     
-
+// Removes just the example task
 export function removeExample() {
     document.getElementById('example').remove();
 }
 
-const projectButton = document.getElementById('projectButtonDiv');
-
+// Resets project button html
 function replaceProject() {
     let button = document.createElement('button');
     button.id = 'projectButton';
@@ -151,6 +160,7 @@ function replaceProject() {
     projectButton.classList.remove('projectBorder')
 }
 
+// Opens form to input title for new project
 export function addProjectForm() {
     let inputForm = document.createElement('form');
     let input = document.createElement('input');
@@ -181,8 +191,7 @@ export function addProjectForm() {
 }
 
 
-const projectSection = document.getElementById('projectSection');
-
+// Appends new project to html and switches to a new blank task section
 function addProject (title) {
     document.querySelectorAll('.projectButton').forEach(button => {
         if (button.classList.contains('selected')) {
