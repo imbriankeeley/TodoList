@@ -3,7 +3,6 @@ import {createCard} from './dom.js'
 
 const popupForm = document.getElementById('popup-form');
 const overlay = document.getElementById('overlay');
-const closeFormBtn = document.getElementById('close-form-btn');
 const cardForm = document.getElementById('card-form');
 const closeForm = document.getElementById('closeFormButton');
 
@@ -27,13 +26,13 @@ export function addTask() {
 
         let taskTitle = title;
         let taskDate = date;
-        let taskDescriptipon = description;
+        let taskDescription = description;
 
-        title = '';
-        date = '';
-        description = '';
+        document.getElementById('title').value = '';
+        document.getElementById('date').value = '';
+        document.getElementById('description').value = '';
 
-        createCard(title, date, description);
+        createCard(taskTitle, taskDate, taskDescription);
 
         closeTaskForm();
         closeOverlay();
