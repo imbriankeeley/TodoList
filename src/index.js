@@ -10,13 +10,21 @@ import { fab } from '@fortawesome/free-brands-svg-icons'
 
 import './styles.css';
 
-import {cardForm, addTask, submitTask, selectDetails, exampleDetails, closeExample} from './task.js'
+import { cardForm, addTask, submitTask, selectDetails, exampleDetails, closeExample} from './task.js'
 import { removeCard, removeExample } from './dom.js'
 import { addProject } from './project.js'
+import { putExampleBack } from './storage.js'
 
 library.add(fas, far, fab) 
 
 dom.i2svg() 
+
+putExampleBack();
+
+if (localStorage.getItem('exampleRemove') === 'true') {
+    removeExample();
+}
+
 
 document.getElementById('taskButton').addEventListener('click', addTask);
 
@@ -33,4 +41,10 @@ document.getElementById('exampleSelect').addEventListener('click', exampleDetail
 
 //Add project
 document.getElementById('projectButton').addEventListener('click', addProject);
+
+
+
+console.log(localStorage)
+
+
 

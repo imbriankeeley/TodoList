@@ -11,6 +11,7 @@ const selectionDescription = document.getElementById('sDesc');
 const selectionDate = document.getElementById('sDate');
 
 
+
 //Open task form
 export function addTask() {
     popupForm.classList.add('show');

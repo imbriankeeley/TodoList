@@ -136,6 +136,8 @@ export function createCard(title, dateString, description) {
 // Removes just the example task
 export function removeExample() {
     document.getElementById('example').remove();
+    localStorage.setItem('exampleRemove', true);
+    console.log(localStorage)
 }
 
 // Resets project button html
