@@ -1,4 +1,5 @@
 import { selectDetails, closeDetails, overlayCloseDetails } from "./task";
+import { AddTask, generalTasks } from "./storage";
 
 
 const taskSection = document.getElementById('taskSection');
@@ -27,8 +28,113 @@ function isTomorrow(currentDate, date) {
     return differenceInDays >= 1 && differenceInDays < 2;
 }
 
+//Load cards on to html on refresh
+export function addCard(title, description, date) {
+    // Date variables
+    let date = new Date(dateString);
+    let currentDate = new Date();
+    currentDate.setHours(0, 0, 0, 0);
+    date.setHours(0, 0, 0, 0);
+    date.setDate(date.getDate() + 1);
+    let day = date.getDate();
+    let month = date.getMonth() + 1;
+    let year = date.getFullYear();
+    let formattedDate = `${month}/${day}/${year}`;
+
+    //Create dom elements
+    let card = document.createElement('div');
+    card.classList.add('card');
+    let taskOptions = document.createElement('div');
+    taskOptions.classList.add('taskOptions');
+    let topTaskButtons1 = document.createElement('button');
+    topTaskButtons1.classList.add('topTaskButtons');
+    let faEllip = document.createElement('i');
+    faEllip.classList.add('fa-solid', 'fa-ellipsis');
+    let topTaskButtons2 = document.createElement('button');
+    topTaskButtons2.classList.add('topTaskButtons');
+    let faXmar = document.createElement('i');
+    faXmar.classList.add('fa-solid', 'fa-xmark');
+    let taskTitle = document.createElement('div');
+    taskTitle.classList.add('taskTitle');
+    let titleText = document.createElement('h2');
+    titleText.innerText = title;
+    console.log(titleText)
+    let taskDescription = document.createElement('div');
+    taskDescription.classList.add('taskDescription');
+    let descriptionText = document.createElement('p');
+    descriptionText.innerText = description;
+    console.log(descriptionText)
+    let taskDue = document.createElement('div');
+    taskDue.classList.add('taskDue');
+    let dateText = document.createElement('p');
+    dateText.innerText = "Due " + date;
+    console.log(dateText)
+    let taskDone = document.createElement('div');
+    taskDone.classList.add('taskDone');
+    let taskDoneButton = document.createElement('button');
+    taskDoneButton.classList.add('taskDoneButton');
+    let faChec = document.createElement('i');
+    faChec.classList.add('fa-solid', 'fa-check');
+
+    // Urgency functionality for card declaration
+    if (date.getTime() === currentDate.getTime()){
+        card.classList.add('highUrgency');
+        taskDoneButton.classList.add('highUrgency');
+        topTaskButtons1.classList.add('highUrgency');
+        topTaskButtons2.classList.add('highUrgency');
+    } else if (isTomorrow(currentDate, date)) {
+        card.classList.add('mediumUrgency');
+        taskDoneButton.classList.add('mediumUrgency');
+        topTaskButtons1.classList.add('mediumUrgency');
+        topTaskButtons2.classList.add('mediumUrgency');
+    }
+
+
+
+    // Appending to html
+    taskSection.insertBefore(card, taskSection.lastChild)
+    card.append(taskOptions);
+    taskOptions.append(topTaskButtons1);
+    taskOptions.append(topTaskButtons2);
+    topTaskButtons1.append(faEllip);
+    topTaskButtons2.append(faXmar);
+    card.append(taskTitle);
+    taskTitle.append(titleText);
+    card.append(taskDescription);
+    taskDescription.append(descriptionText);
+    card.append(taskDue);
+    taskDue.append(dateText);
+    card.append(taskDone);
+    taskDone.append(taskDoneButton);
+    taskDoneButton.append(faChec);
+
+
+    // Detail button to popup more info
+    topTaskButtons1.addEventListener('click', function() {
+        selectDetails(titleText.innerText, descriptionText.innerText, dateText.innerText)
+
+        overlay.addEventListener('click', overlayCloseDetails);
+        details.addEventListener('click', closeDetails);
+
+    })
+
+    // Complete/remove card
+    topTaskButtons2.addEventListener('click', () => {
+        card.remove();
+    })
+
+    taskDoneButton.addEventListener('click', () => {
+        card.remove();
+    })
+}
+
+
 // Create task card and append to html
+let taskCounter = localStorage.getItem('taskCounter');
+
+let i = 1;
 export function createCard(title, dateString, description) {
+    
     // Date variables
     let date = new Date(dateString);
     let currentDate = new Date();
@@ -71,6 +177,9 @@ export function createCard(title, dateString, description) {
     taskDoneButton.classList.add('taskDoneButton');
     let faChec = document.createElement('i');
     faChec.classList.add('fa-solid', 'fa-check');
+
+    //Which project object
+
 
 
     // Urgency functionality for card declaration
@@ -129,6 +238,17 @@ export function createCard(title, dateString, description) {
         alert(`We can't go back to the future!\nChoose a different date`);
     }
 
+
+    //Local storage
+    let task = new AddTask(title, description, date);
+    generalTasks.push(JSON.stringify(task));
+    for(let i = 0; i < generalTasks.length; i++) {
+        localStorage.setItem(`task_${i + 1}`, generalTasks[i])
+        localStorage.setItem('generalTasksQuantity', `${i + 1}`)
+    }
+    console.log(localStorage)
+
+    i++
 }
 
 

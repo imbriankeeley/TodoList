@@ -13,17 +13,27 @@ import './styles.css';
 import { cardForm, addTask, submitTask, selectDetails, exampleDetails, closeExample} from './task.js'
 import { removeCard, removeExample } from './dom.js'
 import { addProject } from './project.js'
-import { putExampleBack } from './storage.js'
+import { putExampleBack, loadStoredTasks, clearGeneralTasks } from './storage.js'
 
 library.add(fas, far, fab) 
 
 dom.i2svg() 
 
-putExampleBack();
+
+
+loadStoredTasks();
+
+console.log(localStorage.getItem('generalTasksQuantity'));
+// To clear task storage in development
+// clearGeneralTasks()
+
+// To return example task in development
+// putExampleBack();
 
 if (localStorage.getItem('exampleRemove') === 'true') {
     removeExample();
-}
+};
+
 
 
 document.getElementById('taskButton').addEventListener('click', addTask);
