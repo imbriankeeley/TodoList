@@ -35,7 +35,7 @@ export function addCard(title, description, dateEntered) {
     let currentDate = new Date();
     currentDate.setHours(0, 0, 0, 0);
     date.setHours(0, 0, 0, 0);
-    date.setDate(date.getDate() + 1);
+    date.setDate(date.getDate());
     let day = date.getDate();
     let month = date.getMonth() + 1;
     let year = date.getFullYear();
@@ -118,6 +118,7 @@ export function addCard(title, description, dateEntered) {
     // Complete/remove card
     topTaskButtons2.addEventListener('click', () => {
         card.remove();
+        
     })
 
     taskDoneButton.addEventListener('click', () => {

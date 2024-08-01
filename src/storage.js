@@ -55,6 +55,8 @@ let quantity = localStorage.getItem('generalTasksQuantity');
             let description = storedTask.description;
             let date = storedTask.date;
 
+            generalTasks.push(localStorage.getItem(`task_${i + 1}`));
+
 
             addCard(title, description, date);
         }

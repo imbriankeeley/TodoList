@@ -13,16 +13,19 @@ import './styles.css';
 import { cardForm, addTask, submitTask, selectDetails, exampleDetails, closeExample} from './task.js'
 import { removeCard, removeExample } from './dom.js'
 import { addProject } from './project.js'
-import { putExampleBack, loadStoredTasks, clearGeneralTasks } from './storage.js'
+import { putExampleBack, loadStoredTasks, clearGeneralTasks, generalTasks } from './storage.js'
 
 library.add(fas, far, fab) 
 
 dom.i2svg() 
 
 
-loadStoredTasks();
+//localStorage.removeItem(`task_1`)
 
+loadStoredTasks();
 console.log(localStorage.getItem('generalTasksQuantity'));
+console.log(generalTasks)
+
 // To clear task storage in development
 // clearGeneralTasks()
 
