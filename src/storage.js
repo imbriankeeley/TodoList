@@ -28,7 +28,11 @@ export function clearGeneralTasks() {
     
 let quantity = localStorage.getItem('generalTasksQuantity');
  for(let i = 0; i < quantity; i++) {
-    localStorage.removeItem(`task_${i + 1}`)
+    
+    let storedTasks = JSON.parse(localStorage.getItem('generalTasks'));
+    storedTasks.shift();
+    localStorage.setItem('generalTasks', JSON.stringify(storedTasks));
+    generalTasks.shift();
  }   
  localStorage.setItem('generalTasksQuantity', '0')
 }
@@ -49,17 +53,19 @@ let quantity = localStorage.getItem('generalTasksQuantity');
     
     if(quantity > 0) {
         for(let i = 0; i < quantity; i++) {
-            let storedTask = JSON.parse(localStorage.getItem(`task_${i + 1}`));
+            let storedTasks = JSON.parse(localStorage.getItem('generalTasks'));
 
-            let title = storedTask.title;
-            let description = storedTask.description;
-            let date = storedTask.date;
+            let title = storedTasks[i].title;
+            let description = storedTasks[i].description;
+            let date = storedTasks[i].date;
 
-            generalTasks.push(localStorage.getItem(`task_${i + 1}`));
+            generalTasks.push((storedTasks[i]));
 
 
             addCard(title, description, date);
         }
+        
+        localStorage.setItem('generalTasks', JSON.stringify(generalTasks))
     }
 
 

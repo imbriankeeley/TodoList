@@ -128,11 +128,10 @@ export function addCard(title, description, dateEntered) {
 
 
 // Create task card and append to html
-let quantity = localStorage.getItem('generalTasksQuantity');
-let i = 1;
-if (quantity > 0) {
-    let i = quantity + 1;
-}
+let quantityNum = localStorage.getItem('generalTasksQuantity');
+let quantity = parseInt(quantityNum);
+
+
 export function createCard(title, dateString, description) {
     
     // Date variables
@@ -241,14 +240,13 @@ export function createCard(title, dateString, description) {
 
     //Local storage
     let task = new AddTask(title, description, date);
-    generalTasks.push(JSON.stringify(task));
-    for(let i = 0; i < generalTasks.length; i++) {
-        localStorage.setItem(`task_${i + 1}`, generalTasks[i])
-        localStorage.setItem('generalTasksQuantity', `${i + 1}`)
-    }
+    generalTasks.push(task);
+    quantity += 1;
+    localStorage.setItem('generalTasksQuantity', quantity);
+    localStorage.setItem('generalTasks', JSON.stringify(generalTasks));
+
     console.log(localStorage)
 
-    i++
 }
 
 

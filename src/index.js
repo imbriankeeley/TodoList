@@ -20,14 +20,16 @@ library.add(fas, far, fab)
 dom.i2svg() 
 
 
-//localStorage.removeItem(`task_1`)
+// To clear task storage in development
+ clearGeneralTasks()
 
-loadStoredTasks();
+// localStorage.setItem('generalTasksQuantity', '0')
+
+// loadStoredTasks();
 console.log(localStorage.getItem('generalTasksQuantity'));
 console.log(generalTasks)
 
-// To clear task storage in development
-// clearGeneralTasks()
+
 
 // To return example task in development
 // putExampleBack();
