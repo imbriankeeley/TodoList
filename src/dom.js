@@ -29,9 +29,9 @@ function isTomorrow(currentDate, date) {
 }
 
 //Load cards on to html on refresh
-export function addCard(title, description, date) {
+export function addCard(title, description, dateEntered) {
     // Date variables
-    let date = new Date(dateString);
+    let date = new Date(dateEntered);
     let currentDate = new Date();
     currentDate.setHours(0, 0, 0, 0);
     date.setHours(0, 0, 0, 0);
@@ -58,17 +58,14 @@ export function addCard(title, description, date) {
     taskTitle.classList.add('taskTitle');
     let titleText = document.createElement('h2');
     titleText.innerText = title;
-    console.log(titleText)
     let taskDescription = document.createElement('div');
     taskDescription.classList.add('taskDescription');
     let descriptionText = document.createElement('p');
     descriptionText.innerText = description;
-    console.log(descriptionText)
     let taskDue = document.createElement('div');
     taskDue.classList.add('taskDue');
     let dateText = document.createElement('p');
-    dateText.innerText = "Due " + date;
-    console.log(dateText)
+    dateText.innerText = "Due " + formattedDate;
     let taskDone = document.createElement('div');
     taskDone.classList.add('taskDone');
     let taskDoneButton = document.createElement('button');
@@ -130,9 +127,11 @@ export function addCard(title, description, date) {
 
 
 // Create task card and append to html
-let taskCounter = localStorage.getItem('taskCounter');
-
+let quantity = localStorage.getItem('generalTasksQuantity');
 let i = 1;
+if (quantity > 0) {
+    let i = quantity + 1;
+}
 export function createCard(title, dateString, description) {
     
     // Date variables

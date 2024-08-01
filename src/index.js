@@ -20,7 +20,6 @@ library.add(fas, far, fab)
 dom.i2svg() 
 
 
-
 loadStoredTasks();
 
 console.log(localStorage.getItem('generalTasksQuantity'));

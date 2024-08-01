@@ -25,7 +25,9 @@ export function AddTask(title, description, date) {
 export const generalTasks = [];
 
 export function clearGeneralTasks() {
- for(let i = 0; i < localStorage.getItem('generalTasksQuantiy'); i++) {
+    
+let quantity = localStorage.getItem('generalTasksQuantity');
+ for(let i = 0; i < quantity; i++) {
     localStorage.removeItem(`task_${i + 1}`)
  }   
  localStorage.setItem('generalTasksQuantity', '0')
@@ -38,23 +40,27 @@ export function clearGeneralTasks() {
 
 
  export function loadStoredTasks() {
-    console.log('hi')
 
-    // let quantity = localStorage.getItem('generalTasksQuanity');
-    // if(quantity > 0) {
-    //     for(let i = 0; i < quantity; i++) {
-    //         let storedTask = JSON.parse(localStorage.getItem(`task_${i + 1}`));
+    let quantity = localStorage.getItem('generalTasksQuantity');
 
-    //         let title = storedTask.title;
-    //         console.log(title)
-    //         let description = storedTask.description;
-    //         console.log(description)
-    //         let date = storedTask.date;
-    //         console.log(date)
 
-    //         addCard(title, description, date);
-    //     }
-    // }
+    
+
+    
+    if(quantity > 0) {
+        for(let i = 0; i < quantity; i++) {
+            let storedTask = JSON.parse(localStorage.getItem(`task_${i + 1}`));
+
+            let title = storedTask.title;
+            let description = storedTask.description;
+            let date = storedTask.date;
+
+
+            addCard(title, description, date);
+        }
+    }
+
+
  }
 
 
