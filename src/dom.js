@@ -226,11 +226,11 @@ export function createCard(title, dateString, description) {
 
     // Complete/remove card
     topTaskButtons2.addEventListener('click', () => {
-        removeCard(taskNum);
+        removeCard(card.id);
     })
 
     taskDoneButton.addEventListener('click', () => {
-        removeCard(taskNum);
+        removeCard(card.id);
     })
 
     
@@ -250,20 +250,20 @@ export function createCard(title, dateString, description) {
 
     console.log(localStorage)
 
-    taskNum++;
+    taskNum += 1;
     localStorage.setItem('taskNumStored', taskNum);
 }
 
 // Removes card from page based on task number assigned to id
-function removeCard(taskNum) {
+function removeCard(id) {
     let generalTasks = JSON.parse(localStorage.getItem('generalTasks'));
-    generalTasks.splice(taskNum - 1, 1);
+    generalTasks.splice(id - 1, 1);
     localStorage.setItem('generalTasks', JSON.stringify(generalTasks));
-    taskNum--;
+    taskNum -= 1;
     quantity -= 1;
     localStorage.setItem('generalTasksQuantity', quantity);
     localStorage.setItem('taskNumStored', taskNum);
-    document.getElementById(`${taskNum}`).remove();
+    document.getElementById(`${id}`).remove();
     console.log(localStorage);
 }
 

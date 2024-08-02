@@ -19,6 +19,7 @@ library.add(fas, far, fab)
 
 dom.i2svg() 
 
+
 // putExampleBack()
 if(localStorage.getItem('exampleRemove') === 'false') {
  createExampleCard();
@@ -29,6 +30,7 @@ if(localStorage.getItem('exampleRemove') === 'false') {
 
 
 // localStorage.setItem('generalTasksQuantity', '0')
+// localStorage.setItem('taskNumStored', '0');
 
 
 
