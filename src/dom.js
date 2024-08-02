@@ -117,12 +117,12 @@ export function addCard(title, description, dateEntered) {
 
     // Complete/remove card
     topTaskButtons2.addEventListener('click', () => {
-        card.remove();
+        removeCard();
         
     })
 
     taskDoneButton.addEventListener('click', () => {
-        card.remove();
+        removeCard();
     })
 }
 
@@ -132,6 +132,8 @@ let quantityNum = localStorage.getItem('generalTasksQuantity');
 let quantity = parseInt(quantityNum);
 
 
+// localStorage.setItem('taskNumStored', '0')
+let taskNum = parseInt(localStorage.getItem('taskNumStored'));
 export function createCard(title, dateString, description) {
     
     // Date variables
@@ -147,6 +149,7 @@ export function createCard(title, dateString, description) {
 
     // Dom variables
     let card = document.createElement('div');
+    card.id = taskNum;
     card.classList.add('card');
     let taskOptions = document.createElement('div');
     taskOptions.classList.add('taskOptions');
@@ -223,11 +226,11 @@ export function createCard(title, dateString, description) {
 
     // Complete/remove card
     topTaskButtons2.addEventListener('click', () => {
-        card.remove();
+        removeCard(taskNum);
     })
 
     taskDoneButton.addEventListener('click', () => {
-        card.remove();
+        removeCard(taskNum);
     })
 
     
@@ -247,16 +250,111 @@ export function createCard(title, dateString, description) {
 
     console.log(localStorage)
 
+    taskNum++;
+    localStorage.setItem('taskNumStored', taskNum);
+}
+
+// Removes card from page based on task number assigned to id
+function removeCard(taskNum) {
+    let generalTasks = JSON.parse(localStorage.getItem('generalTasks'));
+    generalTasks.splice(taskNum - 1, 1);
+    localStorage.setItem('generalTasks', JSON.stringify(generalTasks));
+    taskNum--;
+    quantity -= 1;
+    localStorage.setItem('generalTasksQuantity', quantity);
+    localStorage.setItem('taskNumStored', taskNum);
+    document.getElementById(`${taskNum}`).remove();
+    console.log(localStorage);
 }
 
 
-    
+// Add example card to the page
+export function createExampleCard() {
+    let card = document.createElement('div');
+    card.id = 'example';
+    card.classList.add('card');
+    let taskOptions = document.createElement('div');
+    taskOptions.classList.add('taskOptions');
+    let topTaskButtons1 = document.createElement('button');
+    topTaskButtons1.id = 'exampleSelect';
+    topTaskButtons1.classList.add('topTaskButtons');
+    let faEllip = document.createElement('i');
+    faEllip.classList.add('fa-solid', 'fa-ellipsis');
+    let topTaskButtons2 = document.createElement('button');
+    topTaskButtons2.id = 'removeExample';
+    topTaskButtons2.classList.add('topTaskButtons');
+    let faXmar = document.createElement('i');
+    faXmar.classList.add('fa-solid', 'fa-xmark');
+    let taskTitle = document.createElement('div');
+    taskTitle.classList.add('taskTitle');
+    let titleText = document.createElement('h2');
+    titleText.innerText = 'Walk dog';
+    let taskDescription = document.createElement('div');
+    taskDescription.classList.add('taskDescription');
+    let descriptionText = document.createElement('p');
+    descriptionText.innerText = 'Walk dog every 4 hours';
+    let taskDue = document.createElement('div');
+    taskDue.classList.add('taskDue');
+    let dateText = document.createElement('p');
+    dateText.innerText = 'Due 7/31/25';
+    let taskDone = document.createElement('div');
+    taskDone.classList.add('taskDone');
+    let taskDoneButton = document.createElement('button');
+    taskDoneButton.id = 'exampleDone';
+    taskDoneButton.classList.add('taskDoneButton');
+    let faChec = document.createElement('i');
+    faChec.classList.add('fa-solid', 'fa-check');
+
+    // Appending to html
+    taskSection.insertBefore(card, taskSection.lastChild)
+    card.append(taskOptions);
+    taskOptions.append(topTaskButtons1);
+    taskOptions.append(topTaskButtons2);
+    topTaskButtons1.append(faEllip);
+    topTaskButtons2.append(faXmar);
+    card.append(taskTitle);
+    taskTitle.append(titleText);
+    card.append(taskDescription);
+    taskDescription.append(descriptionText);
+    card.append(taskDue);
+    taskDue.append(dateText);
+    card.append(taskDone);
+    taskDone.append(taskDoneButton);
+    taskDoneButton.append(faChec);
+
+    // Detail button to popup more info
+    topTaskButtons1.addEventListener('click', function() {
+        selectDetails(titleText.innerText, descriptionText.innerText, dateText.innerText)
+
+        overlay.addEventListener('click', overlayCloseDetails);
+        details.addEventListener('click', closeDetails);
+
+    })
+
+    // Complete/remove card
+    topTaskButtons2.addEventListener('click', () => {
+        removeExample();
+    })
+
+    taskDoneButton.addEventListener('click', () => {
+        removeExample();
+    })
+
+    let task = new AddTask(title, description, date);
+    localStorage.setItem('exampleTask', JSON.stringify(task));
+
+}
+
 // Removes just the example task
 export function removeExample() {
-    document.getElementById('example').remove();
     localStorage.setItem('exampleRemove', true);
-    console.log(localStorage)
+    localStorage.removeItem('exampleTask');
+    console.log(localStorage);
+    document.getElementById('example').remove();
+    
 }
+    
+
 
 // Resets project button html
 function replaceProject() {

@@ -1,20 +1,24 @@
 import { addCard } from "./dom";
 
+// Development - replaces example task on page
 export function putExampleBack() {
     localStorage.setItem('exampleRemove', false)
 }
 
+// Initializing object for example task
 const exampleTaskObj = {
     title: 'Walk dog',
     description: 'Walk dog every 4 hours',
     date: 'Due 7/31/25'
 };
 
+// Stringify and set example task in storage
 const exampleTaskObjStringified = JSON.stringify(exampleTaskObj);
 
 localStorage.setItem('exampleTask', exampleTaskObjStringified);
 
 
+// Function to create new task objects
 export function AddTask(title, description, date) {
     this.title = title;
     this.description = description;
@@ -22,8 +26,11 @@ export function AddTask(title, description, date) {
 }
 
 
+// Initializing general tasks array to hold task objects
 export const generalTasks = [];
 
+
+// Development - to clear all tasks from storage
 export function clearGeneralTasks() {
     
 let quantity = localStorage.getItem('generalTasksQuantity');
@@ -42,7 +49,7 @@ let quantity = localStorage.getItem('generalTasksQuantity');
  
 
 
-
+// Loads cards in local storage to page on refresh
  export function loadStoredTasks() {
 
     let quantity = localStorage.getItem('generalTasksQuantity');
