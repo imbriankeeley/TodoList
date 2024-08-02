@@ -1,4 +1,4 @@
-import { selectDetails, closeDetails, overlayCloseDetails } from "./task";
+import { selectDetails, closeDetails, overlayCloseDetails, exampleDetails } from "./task";
 import { AddTask, generalTasks } from "./storage";
 
 
@@ -29,7 +29,7 @@ function isTomorrow(currentDate, date) {
 }
 
 //Load cards on to html on refresh
-export function addCard(title, description, dateEntered) {
+export function addCard(id, title, description, dateEntered) {
     // Date variables
     let date = new Date(dateEntered);
     let currentDate = new Date();
@@ -43,6 +43,7 @@ export function addCard(title, description, dateEntered) {
 
     //Create dom elements
     let card = document.createElement('div');
+    card.id = id;
     card.classList.add('card');
     let taskOptions = document.createElement('div');
     taskOptions.classList.add('taskOptions');
@@ -117,12 +118,12 @@ export function addCard(title, description, dateEntered) {
 
     // Complete/remove card
     topTaskButtons2.addEventListener('click', () => {
-        removeCard();
+        removeCard(card.id);
         
     })
 
     taskDoneButton.addEventListener('click', () => {
-        removeCard();
+        removeCard(card.id);
     })
 }
 
@@ -261,9 +262,14 @@ function removeCard(id) {
     localStorage.setItem('generalTasks', JSON.stringify(generalTasks));
     taskNum -= 1;
     quantity -= 1;
+    if (taskNum < 0) {
+        taskNum = 0;
+    } else if (quantity < 0) {
+        quantity = 0;
+    }
     localStorage.setItem('generalTasksQuantity', quantity);
     localStorage.setItem('taskNumStored', taskNum);
-    document.getElementById(`${id}`).remove();
+    document.getElementById(id).remove();
     console.log(localStorage);
 }
 

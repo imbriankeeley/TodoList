@@ -65,11 +65,12 @@ let quantity = localStorage.getItem('generalTasksQuantity');
             let title = storedTasks[i].title;
             let description = storedTasks[i].description;
             let date = storedTasks[i].date;
+            let id = i;
 
             generalTasks.push((storedTasks[i]));
 
 
-            addCard(title, description, date);
+            addCard(id, title, description, date);
         }
         
         localStorage.setItem('generalTasks', JSON.stringify(generalTasks))
