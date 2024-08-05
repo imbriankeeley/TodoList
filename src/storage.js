@@ -5,6 +5,11 @@ export function putExampleBack() {
     localStorage.setItem('exampleRemove', false)
 }
 
+// Inititalize project array to hold projects
+export const projects = [];
+localStorage.setItem('projects', JSON.stringify(projects))
+
+
 // Initializing object for example task
 const exampleTaskObj = {
     title: 'Walk dog',
@@ -25,9 +30,18 @@ export function AddTask(title, description, date) {
     this.date = date;
 }
 
+export function createProjectArray(title) {
+    title = [];
+    projects.push(title);
+    localStorage.setItem('projects', JSON.stringify(projects));
+    console.log(localStorage);
+}
+
 
 // Initializing general tasks array to hold task objects
 export const generalTasks = [];
+projects.push(generalTasks);
+localStorage.setItem('projects', JSON.stringify(projects))
 
 
 // Development - to clear all tasks from storage

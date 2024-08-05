@@ -1,5 +1,5 @@
 import { selectDetails, closeDetails, overlayCloseDetails, exampleDetails } from "./task";
-import { AddTask, generalTasks } from "./storage";
+import { AddTask, createProjectArray, generalTasks, projects } from "./storage";
 
 
 const taskSection = document.getElementById('taskSection');
@@ -438,4 +438,10 @@ function addProject (title) {
     if(taskSection.children.length > 1){
         taskSection.removeChild(taskSection.firstChild);
     }
+
+    // Create project array with the name passed from add project form
+    // and add to projects array
+    
+    createProjectArray(title);
+    
 }
