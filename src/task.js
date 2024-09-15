@@ -23,6 +23,7 @@ export function addTask() {
 
 
 //Submit task
+let taskNum = parseInt(localStorage.getItem('taskNumStored'));
 export function submitTask(event) {
     //Get data from user after a successful sumbit and add card
         event.preventDefault();
@@ -31,7 +32,8 @@ export function submitTask(event) {
         let date = document.getElementById('date').value;
         let description = document.getElementById('description').value;
 
-        createCard(title, date, description);
+        createCard(taskNum, title, date, description);
+
 
         document.getElementById('title').value = '';
         document.getElementById('date').value = '';

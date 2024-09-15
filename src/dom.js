@@ -135,7 +135,7 @@ let quantity = parseInt(quantityNum);
 
 // localStorage.setItem('taskNumStored', '0')
 let taskNum = parseInt(localStorage.getItem('taskNumStored'));
-export function createCard(title, dateString, description) {
+export function createCard(id, title, dateString, description) {
     
     // Date variables
     let date = new Date(dateString);
@@ -243,9 +243,8 @@ export function createCard(title, dateString, description) {
 
 
     //Local storage
-    let task = new AddTask(taskNum, title, description, date);
+    let task = new AddTask(id, title, description, date);
     generalTasks.push(task);
-    quantity += 1;
     localStorage.setItem('generalTasksQuantity', quantity);
     localStorage.setItem('generalTasks', JSON.stringify(generalTasks));
 
