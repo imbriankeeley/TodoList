@@ -243,7 +243,7 @@ export function createCard(title, dateString, description) {
 
 
     //Local storage
-    let task = new AddTask(title, description, date);
+    let task = new AddTask(taskNum, title, description, date);
     generalTasks.push(task);
     quantity += 1;
     localStorage.setItem('generalTasksQuantity', quantity);

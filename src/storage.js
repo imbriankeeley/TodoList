@@ -24,11 +24,14 @@ localStorage.setItem('exampleTask', exampleTaskObjStringified);
 
 
 // Function to create new task objects
-export function AddTask(title, description, date) {
+export function AddTask(id, title, description, date) {
+    this.id = id;
     this.title = title;
     this.description = description;
     this.date = date;
 }
+
+let projectNum = 0;
 
 export function createProjectArray(title) {
     title = [];
