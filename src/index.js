@@ -10,40 +10,33 @@ import { fab } from '@fortawesome/free-brands-svg-icons'
 
 import './styles.css';
 
-import { cardForm, addTask, submitTask, selectDetails, exampleDetails, closeExample, addTaskGeneral} from './task.js'
-import { removeCard, removeExample, createExampleCard } from './dom.js'
-import { addProject } from './project.js'
-import { putExampleBack, loadStoredTasks, clearGeneralTasks, generalTasks } from './storage.js'
+import { AddProject } from './projectObject.js'
+import { AddTask } from "./taskObject.js";
 
 library.add(fas, far, fab) 
 
 dom.i2svg() 
 
 
-// putExampleBack()
-if(localStorage.getItem('exampleRemove') === 'false') {
- createExampleCard();
-}
+const generalProject = new AddProject('General Tasks');
 
-// To clear task storage in development
-// clearGeneralTasks()
+const newProject1 = new AddProject('Project 1');
 
 
-// localStorage.setItem('generalTasksQuantity', '0')
-// localStorage.setItem('taskNumStored', '0');
+const newProject2 = new AddProject('Project 2');
 
+console.log(generalProject);
+console.log(newProject1);
+newProject1.remove();
+console.log(newProject1);
+console.log(newProject2);
 
+const task1 = new AddTask(generalProject, 'Task 1', 'This is task 1', 'Today');
 
- loadStoredTasks();
+console.log(generalProject);
+const task2 = new AddTask(generalProject, 'Task 2', 'This is task 2', 'Tomorrow');
+console.log(generalProject);
 
- // Console logs to track data during development
-console.log(localStorage.getItem('generalTasksQuantity'));
-console.log(generalTasks)
-
-
-
-
-
-
+AddProject.printAll();
 
 
