@@ -1,3 +1,5 @@
+import { Dom } from './domObject';
+const dom = new Dom();
 
 export class AddTask {
 
