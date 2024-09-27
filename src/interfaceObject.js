@@ -5,7 +5,7 @@ import { Dom } from './domObject.js'
 
  const format = new DateFormat();
 
-const generalProject = new AddProject('General Tasks');
+export const generalProject = new AddProject('General Tasks');
 const dom = new Dom();
 const addTask = document.getElementById('addTask');
 const popupForm = document.getElementById('popup-form');

@@ -1,4 +1,5 @@
 import { DateFormat } from "./dateFormat";
+import { AddProject } from "./projectObject";
 
 const format = new DateFormat();
 
@@ -9,10 +10,11 @@ const projectSection = document.getElementById('projectSection');
 
 export class Dom {
 
-    appendTask(project, title, description, date) {
+    appendTask(project, title, description, date, id) {
 
     // Dom variables
     let card = document.createElement('div');
+    card.id = id;
     card.project = project;
     card.classList.add('card');
     let taskOptions = document.createElement('div');
@@ -69,6 +71,23 @@ export class Dom {
         details.addEventListener('click', this.closeDetails);
 
     })
+
+    topTaskButtons2.addEventListener('click', (e) => {
+        const card = e.target.closest('.card');
+        if (card) {
+            AddProject.removeTask('General Tasks', card.id);
+            card.remove();
+        }
+    })
+
+    taskDoneButton.addEventListener('click', (e) => {
+        const card = e.target.closest('.card');
+        if (card) {
+            AddProject.removeTask('General Tasks', card.id);
+            card.remove();
+        }
+    })
+
     }
 
     selectDetails(title, description, date) {
@@ -89,6 +108,8 @@ export class Dom {
         details.classList.remove('show');
         overlay.classList.remove('show');
     };
+
+    
 
 }
 

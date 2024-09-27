@@ -15,14 +15,9 @@ export class AddTask {
 
         project.addTask(this);
 
-        dom.appendTask(project, title, description, date)
+        dom.appendTask(project, title, description, date, this.id)
     }
-
     
-    remove() {
-        this.project.tasks.splice((this.id - 1), 1)
-        // --this.project.taskId;
-    }
 }
 
 

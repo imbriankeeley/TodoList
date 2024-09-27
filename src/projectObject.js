@@ -1,3 +1,5 @@
+import { generalProject } from "./interfaceObject";
+
 
 export class AddProject {
 
@@ -28,6 +30,24 @@ export class AddProject {
 
     addTask(task) {
         this.tasks.push(task);
+    }
+
+    static removeTask(projectName, taskId) {
+        const project = AddProject.projects.find(p => p.title === projectName);
+
+        if (project) {
+            const taskIndex = project.tasks.findIndex(task => task.id === parseInt(taskId));
+            if (taskIndex !== -1) {
+                project.tasks.splice(taskIndex, 1);
+                console.log(`Task ${taskId} removed from project ${projectName}`);
+            } else {
+                console.log(`Task ${taskId} not found in project ${projectName}`);
+            }
+        } else {
+            console.log(`Project ${projectName} not found`);
+        }
+
+        console.log(generalProject);
     }
 
     static printAll() {
