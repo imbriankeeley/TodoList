@@ -11,6 +11,7 @@ const selectionDate = document.getElementById('sDate');
 const overlay = document.getElementById('overlay');
 const projectButton = document.getElementById('projectButtonDiv');
 const projectSection = document.getElementById('projectSection');
+const projectForm = document.getElementById('projectForm');
 
 
 export class Dom {
@@ -118,10 +119,34 @@ export class Dom {
     overlayCloseDetails() {
         details.classList.remove('show');
         overlay.classList.remove('show');
-    };
+    };    
+        
+    // Appends new project to html and switches to a new blank task section
+    addProject (title) {
+        document.querySelectorAll('.projectButton').forEach(button => {
+        if (button.classList.contains('selected')) {
+                    button.classList.add('un');
+                    button.classList.remove('selected');
+        }
+    })
+            
+        let projectButton = document.createElement('button');
+        projectButton.classList.add('projectButton', 'selected');
+        projectButton.id = title;
+        let h2 = document.createElement('h2');
+        h2.innerText = title;
+        
+        projectSection.insertBefore(projectButton, projectSection.lastChild)
+        projectButton.append(h2);
+        
+        if(taskSection.children.length > 1){
+            taskSection.removeChild(taskSection.firstChild);
+        }
 
+        const newProject = new AddProject(title);
+
+    }
     
-
 }
 
 

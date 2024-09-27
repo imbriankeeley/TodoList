@@ -8,17 +8,18 @@ export class AddTask {
 
     constructor(projectTitle, title, description, date) {
         const project = AddProject.projects.find(p => p.title === projectTitle)
+            this.project = project;
+            this.projectTitle = project.getName();
+            this.id = project.getTaskId();
+            this.title = title;
+            this.description = description;
+            this.date = format.formatDate(date);
 
-        this.project = project;
-        this.projectTitle = project.getName();
-        this.id = project.getTaskId();
-        this.title = title;
-        this.description = description;
-        this.date = format.formatDate(date);
+            project.addTask(this);
 
-        project.addTask(this);
-
-        dom.appendTask(project, title, description, date, this.id)
+            dom.appendTask(project, title, description, date, this.id)
+        
+        
     }
 
 }

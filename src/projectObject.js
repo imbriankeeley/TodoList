@@ -14,6 +14,7 @@ export class AddProject {
         this.taskId = 0;
 
         AddProject.projects.push(this);
+        console.log(this);
     }
 
     getId() {
@@ -49,16 +50,6 @@ export class AddProject {
         }
 
         console.log(generalProject);
-    }
-
-    static selectedProject() {
-        const buttons = projectDiv.getElementsByTagName('button')
-
-        for (let button of buttons) {
-            if (button.classList.contains('selected'));
-            return button.id;
-        }
-
     }
 
     static printAll() {

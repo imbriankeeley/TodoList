@@ -12,6 +12,9 @@ const popupForm = document.getElementById('popup-form');
 const overlay = document.getElementById('overlay');
 const cardForm = document.getElementById('card-form');
 const closeForm = document.getElementById('closeFormButton');
+const projectButton = document.getElementById('projectButtonDiv');
+const projectSection = document.getElementById('projectSection');
+const projectForm = document.getElementById('projectForm');
 const details = document.getElementById('details');
 const selectionTitle = document.getElementById('sTitle');
 const selectionDescription = document.getElementById('sDesc');
@@ -30,12 +33,17 @@ export class InterfaceObject {
     }
 
     start() {
-        
-        
-        console.log(generalProject);
 
         cardForm.addEventListener('submit', this.submitTask)
         addTask.addEventListener('click', this.addTask);
+        projectButton.addEventListener('click', projectForm.classList.remove('popup-project-form'));
+        projectForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+            projectForm.classList.add('popup-project-form');
+            let title = document.querySelector('#projectName').value;
+            dom.addProject(title);
+        });
+        
 
     };
 
@@ -56,10 +64,11 @@ export class InterfaceObject {
         let date = document.getElementById('date').value;
         let description = document.getElementById('description').value;
 
+        const project = document.querySelector('.projectButton.selected').id;
 
-        const task = new AddTask(AddProject.selectedProject(), title, description, (date));
+        const task = new AddTask(project, title, description, (date));
 
-        console.log(generalProject);
+        console.log(task);
 
         document.getElementById('title').value = '';
         document.getElementById('date').value = '';
