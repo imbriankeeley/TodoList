@@ -58,6 +58,7 @@ export class InterfaceObject {
         let description = document.getElementById('description').value;
 
         const task = new AddTask(generalProject, title, description, date);
+        
         console.log(generalProject);
 
         document.getElementById('title').value = '';
