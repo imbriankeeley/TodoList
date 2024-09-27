@@ -56,7 +56,8 @@ export class InterfaceObject {
         let date = document.getElementById('date').value;
         let description = document.getElementById('description').value;
 
-        const task = new AddTask(generalProject, title, description, (date));
+
+        const task = new AddTask(AddProject.selectedProject(), title, description, (date));
 
         console.log(generalProject);
 

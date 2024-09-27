@@ -1,4 +1,5 @@
 import { generalProject } from "./interfaceObject";
+const projectDiv = document.getElementById('projectSection');
 
 
 export class AddProject {
@@ -48,6 +49,16 @@ export class AddProject {
         }
 
         console.log(generalProject);
+    }
+
+    static selectedProject() {
+        const buttons = projectDiv.getElementsByTagName('button')
+
+        for (let button of buttons) {
+            if (button.classList.contains('selected'));
+            return button.id;
+        }
+
     }
 
     static printAll() {

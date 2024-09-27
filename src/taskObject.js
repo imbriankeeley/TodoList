@@ -1,11 +1,14 @@
 import { Dom } from './domObject';
 import { DateFormat } from './dateFormat';
+import { AddProject } from './projectObject';
 const dom = new Dom();
 const format = new DateFormat();
 
 export class AddTask {
 
-    constructor(project, title, description, date) {
+    constructor(projectTitle, title, description, date) {
+        const project = AddProject.projects.find(p => p.title === projectTitle)
+
         this.project = project;
         this.projectTitle = project.getName();
         this.id = project.getTaskId();
@@ -17,7 +20,7 @@ export class AddTask {
 
         dom.appendTask(project, title, description, date, this.id)
     }
-    
+
 }
 
 
