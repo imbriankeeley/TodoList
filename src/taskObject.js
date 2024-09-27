@@ -1,5 +1,7 @@
 import { Dom } from './domObject';
+import { DateFormat } from './dateFormat';
 const dom = new Dom();
+const format = new DateFormat();
 
 export class AddTask {
 
@@ -9,9 +11,11 @@ export class AddTask {
         this.id = project.getTaskId();
         this.title = title;
         this.description = description;
-        this.date = date;
+        this.date = format.formatDate(date);
 
         project.addTask(this);
+
+        dom.appendTask(project, title, description, date)
     }
 
     

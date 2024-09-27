@@ -12,9 +12,6 @@ export class Dom {
 
     appendTask(project, title, description, date) {
 
-    // Add task to project
-    const task = new AddTask(project, title, description, date);
-
     // Dom variables
     let card = document.createElement('div');
     card.project = project;

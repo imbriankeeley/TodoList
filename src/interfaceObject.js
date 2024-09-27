@@ -1,5 +1,5 @@
 import { AddProject } from './projectObject.js'
-import AddTask from "./taskObject.js";
+import { AddTask } from "./taskObject.js";
 import DateFormat from './dateFormat.js'
 import { Dom } from './domObject.js'
 import { generalTasks } from './storage.js';
@@ -7,7 +7,6 @@ import { generalTasks } from './storage.js';
  const format = new DateFormat();
 
 const generalProject = new AddProject('General Tasks');
-
 const dom = new Dom();
 const addTask = document.getElementById('addTask');
 const popupForm = document.getElementById('popup-form');
@@ -33,12 +32,13 @@ export class InterfaceObject {
 
     start() {
         
+        
         console.log(generalProject);
 
         cardForm.addEventListener('submit', this.submitTask)
         addTask.addEventListener('click', this.addTask);
 
-    }
+    };
 
     addTask() {
         popupForm.classList.add('show');
@@ -49,6 +49,7 @@ export class InterfaceObject {
     };
 
     submitTask(event) {
+
     //Get data from user after a successful sumbit and add card
         event.preventDefault();
 
@@ -56,7 +57,7 @@ export class InterfaceObject {
         let date = document.getElementById('date').value;
         let description = document.getElementById('description').value;
 
-        dom.appendTask(generalProject, title, description, date);
+        const task = new AddTask(generalProject, title, description, date);
         console.log(generalProject);
 
         document.getElementById('title').value = '';
