@@ -127,8 +127,8 @@ export class Dom {
         if (button.classList.contains('selected')) {
                     button.classList.add('un');
                     button.classList.remove('selected');
-        }
-    })
+        }})
+        
             
         let projectButton = document.createElement('button');
         projectButton.classList.add('projectButton', 'selected');
@@ -142,6 +142,8 @@ export class Dom {
         if(taskSection.children.length > 1){
             taskSection.removeChild(taskSection.firstChild);
         }
+
+        
 
         const newProject = new AddProject(title);
 
