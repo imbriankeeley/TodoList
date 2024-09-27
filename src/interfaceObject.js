@@ -36,11 +36,14 @@ export class InterfaceObject {
 
         cardForm.addEventListener('submit', this.submitTask)
         addTask.addEventListener('click', this.addTask);
-        projectButton.addEventListener('click', projectForm.classList.remove('popup-project-form'));
+        projectButton.addEventListener('click', () => {
+            projectForm.classList.remove('popup-project-form')
+        });
         projectForm.addEventListener('submit', (event) => {
             event.preventDefault();
             projectForm.classList.add('popup-project-form');
             let title = document.querySelector('#projectName').value;
+            projectForm.reset(); 
             dom.addProject(title);
         });
         
