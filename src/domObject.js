@@ -4,6 +4,11 @@ import { AddProject } from "./projectObject";
 const format = new DateFormat();
 
 const taskSection = document.getElementById('taskSection');
+const details = document.getElementById('details');
+const selectionTitle = document.getElementById('sTitle');
+const selectionDescription = document.getElementById('sDesc');
+const selectionDate = document.getElementById('sDate');
+const overlay = document.getElementById('overlay');
 const projectButton = document.getElementById('projectButtonDiv');
 const projectSection = document.getElementById('projectSection');
 
@@ -64,14 +69,19 @@ export class Dom {
     taskDoneButton.append(faChec);
 
     // Detail button to popup more info
-    topTaskButtons1.addEventListener('click', function() {
-        this.selectDetails(titleText.innerText, descriptionText.innerText, dateText.innerText)
-
-        overlay.addEventListener('click', this.overlayCloseDetails);
-        details.addEventListener('click', this.closeDetails);
-
+    topTaskButtons1.addEventListener('click', (e) => {
+        const card = e.target.closest('.card');
+        if (card) {
+            const title = card.querySelector('.taskTitle h2').innerText;
+            const description = card.querySelector('.taskDescription p').innerText;
+            const date = card.querySelector('.taskDue p').innerText;
+            this.selectDetails(title, description, date);
+            overlay.addEventListener('click', this.overlayCloseDetails);
+            details.addEventListener('click', this.closeDetails);
+        }
     })
 
+    // Remove card
     topTaskButtons2.addEventListener('click', (e) => {
         const card = e.target.closest('.card');
         if (card) {
@@ -80,6 +90,7 @@ export class Dom {
         }
     })
 
+    // Remove card
     taskDoneButton.addEventListener('click', (e) => {
         const card = e.target.closest('.card');
         if (card) {
