@@ -1,0 +1,242 @@
+[33mcommit b8134ec785b2366f3598eede5e202213b7816a11[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mRefactor-storage[m[33m)[m
+Merge: f219894 d8d5679
+Author: Brian Keeley <imbriankeeley@gmail.com>
+Date:   Fri Sep 27 09:12:58 2024 -0400
+
+    Merge branch 'Refactor-storage' of https://github.com/imbriankeeley/TODO-TOP into Refactor-storage
+
+[33mcommit f219894e533af521cd1e27bceb272b1f2c7f8aa6[m
+Author: Brian Keeley <imbriankeeley@gmail.com>
+Date:   Fri Sep 27 09:09:22 2024 -0400
+
+    Fixed submitTask function to add task to dom and project object
+
+[33mcommit d8d5679d227bcf5d4bf9360677b3a1ad12bef483[m[33m ([m[1;31morigin/Refactor-storage[m[33m)[m
+Author: Brian Keeley <imbriankeeley@gmail.com>
+Date:   Fri Sep 27 07:18:40 2024 -0400
+
+    Made static methods to remove redundancy
+
+[33mcommit cffb1d562a1cf7475f20e9444816f58f7ac83655[m
+Author: Brian Keeley <imbriankeeley@gmail.com>
+Date:   Thu Sep 26 15:22:17 2024 -0400
+
+    Refactored some more of the functionality into seperate objects
+
+[33mcommit b7c7ee3331ae84df1707cb89ee3f055d428e1b15[m
+Author: Brian Keeley <imbriankeeley@gmail.com>
+Date:   Tue Sep 24 16:44:48 2024 -0400
+
+    created project and task classes to replace old messy code
+
+[33mcommit 8d9e6c70b7d6f563d3f5bf8cabc8c2499ff437f1[m
+Author: Brian Keeley <imbriankeeley@gmail.com>
+Date:   Sun Sep 15 14:47:52 2024 -0400
+
+    Storage stuff
+
+[33mcommit 89e3d818311c7b67ff0933d478208a4d72030c8b[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m
+Author: Brian Keeley <imbriankeeley@gmail.com>
+Date:   Sun Sep 15 09:29:15 2024 -0400
+
+    Added id functionality to project array
+
+[33mcommit aa3c9e51fcaa5238b69a998a90e3b37d45c183d2[m
+Author: Brian Keeley <imbriankeeley@gmail.com>
+Date:   Mon Aug 5 13:45:08 2024 -0400
+
+    Added function to initialize array and add to projects array
+
+[33mcommit fa2ba650e50892f3e5e1483730579a4cdc730208[m
+Author: Brian Keeley <imbriankeeley@gmail.com>
+Date:   Thu Aug 1 23:10:46 2024 -0400
+
+    Removed dist from .gitignore too make live web
+    page compatible
+
+[33mcommit c11ff3d7a65e391b0144ddacfc96ebe8a879da75[m
+Author: Brian Keeley <imbriankeeley@gmail.com>
+Date:   Thu Aug 1 23:07:03 2024 -0400
+
+    Initial dist subtree commit
+
+[33mcommit d2cb8e538c686cb6c495763375626650dba7682d[m
+Author: Brian Keeley <imbriankeeley@gmail.com>
+Date:   Thu Aug 1 22:21:09 2024 -0400
+
+    Fixed another bug where refreshing the page didnt allow removing cards easily
+
+[33mcommit d2fbe8a2c75bf86874932c88ab9ff6bc94e38b1e[m
+Author: Brian Keeley <imbriankeeley@gmail.com>
+Date:   Thu Aug 1 22:02:01 2024 -0400
+
+    Fixed bug with removing cards from local storage
+
+[33mcommit 7b868b06fc2d86b6be0cfb6553a3e39bcd57d32a[m
+Author: Brian Keeley <imbriankeeley@gmail.com>
+Date:   Thu Aug 1 21:52:09 2024 -0400
+
+    Added functions to remove added tasks
+
+[33mcommit 882aa2ea2830646e3aff7a0cb5656ded4be5f924[m
+Author: Brian Keeley <imbriankeeley@gmail.com>
+Date:   Thu Aug 1 14:14:39 2024 -0400
+
+    Cards are able to stay on the page even after reloading - will add example card to general tasks
+
+[33mcommit 05f64b40f7badb2e215ae6b08a5b0bbaf148e82d[m
+Author: Brian Keeley <imbriankeeley@gmail.com>
+Date:   Wed Jul 31 22:18:13 2024 -0400
+
+    Logic for adding cards and them staying on the page from local storage fixed
+
+[33mcommit c3da284ada4946fed9d2eb6677da7bee1ee30e1f[m
+Author: Brian Keeley <imbriankeeley@gmail.com>
+Date:   Wed Jul 31 21:43:51 2024 -0400
+
+    Fixed some typos and added source map for debugging
+
+[33mcommit af8becb2885b36d383b172fd23e384cc26a4348f[m
+Author: Brian Keeley <imbriankeeley@gmail.com>
+Date:   Wed Jul 31 20:23:45 2024 -0400
+
+    Added some logic to add new card information to local storage
+
+[33mcommit 933d2b030387d97a4828efb06076d4089a715428[m
+Author: Brian Keeley <imbriankeeley@gmail.com>
+Date:   Wed Jul 31 14:02:00 2024 -0400
+
+    Setup localstoage logic to remove example task
+
+[33mcommit 883e2567830543f4c5ad4ec87d71f2419b306db4[m
+Author: Brian Keeley <imbriankeeley@gmail.com>
+Date:   Mon Jul 29 18:36:31 2024 -0400
+
+    Made some more comments to easier readablity
+
+[33mcommit 9fb9d481ea5b0392208b2327fdc32d1ef6308b82[m
+Author: Brian Keeley <imbriankeeley@gmail.com>
+Date:   Mon Jul 29 18:28:40 2024 -0400
+
+    Added some comments
+
+[33mcommit d425f9e16569c7fc9f9ee268a0dc5fe9ac250972[m
+Author: Brian Keeley <imbriankeeley@gmail.com>
+Date:   Mon Jul 29 18:04:33 2024 -0400
+
+    Created logic for creating new project
+
+[33mcommit 1807b14c712f9b3e873373204b37bd09019d5f9d[m
+Author: Brian Keeley <imbriankeeley@gmail.com>
+Date:   Mon Jul 29 16:20:04 2024 -0400
+
+    Made select details button fully functional for example card and dynamically added cards
+
+[33mcommit 30002ac6097cd03a0e4eba131d44a0fef8361007[m
+Author: Brian Keeley <imbriankeeley@gmail.com>
+Date:   Mon Jul 29 11:07:49 2024 -0400
+
+    Added fully functioning remove and complete buttons for each task
+
+[33mcommit 3f7787c6c497622d10b7b0baa1e5473e909a9f83[m
+Author: Brian Keeley <imbriankeeley@gmail.com>
+Date:   Mon Jul 29 00:19:13 2024 -0400
+
+    Fixed past date bug
+
+[33mcommit 477d4b6b7432a9d1fd5d7ea09a046f1c972f0529[m
+Author: Brian Keeley <imbriankeeley@gmail.com>
+Date:   Sun Jul 28 23:21:58 2024 -0400
+
+    Rafactered some styling
+
+[33mcommit 9cdde88cf1e2d673ff03a73b0588f2e9d9fefafc[m
+Author: Brian Keeley <imbriankeeley@gmail.com>
+Date:   Sun Jul 28 23:10:51 2024 -0400
+
+    Fixed bug with date times and urgency classes
+
+[33mcommit 4575d4f23582a90b75275fbc93300951ac6212fd[m
+Author: Brian Keeley <imbriankeeley@gmail.com>
+Date:   Sun Jul 28 22:52:45 2024 -0400
+
+    Fixed duplication bug
+
+[33mcommit ae79dbd509e4fa520c18ec3b9c6e0cbe9804a7fd[m
+Author: Brian Keeley <imbriankeeley@gmail.com>
+Date:   Sun Jul 28 22:30:56 2024 -0400
+
+    Created logic for adding card to dom but have a couple bugs that need fixing
+
+[33mcommit 23a4fb36b60467966f58e10ddd0059fa9b556c55[m
+Author: Brian Keeley <imbriankeeley@gmail.com>
+Date:   Sun Jul 28 21:03:27 2024 -0400
+
+    Created logic for submiting form to take values and create a card calling a function that adds it to the dom
+
+[33mcommit 071741267143cad1666505355928d840c42245a3[m
+Author: Brian Keeley <imbriankeeley@gmail.com>
+Date:   Thu Jul 25 16:19:17 2024 -0400
+
+    Styled form and added button functionality for opening and closing form
+
+[33mcommit 1e5f1b700257c7c3c68aed72dc4e4083f60e8c1d[m
+Author: Brian Keeley <imbriankeeley@gmail.com>
+Date:   Thu Jul 25 14:39:32 2024 -0400
+
+    Added specific variants for ugency
+
+[33mcommit 1ca8d542c1e798d9f664a56a1cd154e1ff3698ac[m
+Author: Brian Keeley <imbriankeeley@gmail.com>
+Date:   Thu Jul 25 14:30:41 2024 -0400
+
+    Created basic styling for task cards before going on to urgency variants
+
+[33mcommit bf510d2f2e99e127c0e0fcf0a4ff0199e516dae4[m
+Author: Brian Keeley <imbriankeeley@gmail.com>
+Date:   Wed Jul 24 16:11:18 2024 -0400
+
+    Added styling for header and buttons
+
+[33mcommit e65a6ae462e8364b199f7dbac2e2e1d08c87fa8e[m
+Author: Brian Keeley <imbriankeeley@gmail.com>
+Date:   Wed Jul 24 15:37:16 2024 -0400
+
+    Connected css to index file
+
+[33mcommit 4427cbbbaa307b2eefbe232015b6ce9f91c629ae[m
+Author: Brian Keeley <imbriankeeley@gmail.com>
+Date:   Wed Jul 24 15:28:12 2024 -0400
+
+    Added fontawesome imports
+
+[33mcommit 605b6580e881b928e4505bd5f3730c629f281419[m
+Author: Brian Keeley <imbriankeeley@gmail.com>
+Date:   Wed Jul 24 15:27:39 2024 -0400
+
+    Added skeleton for todo page
+
+[33mcommit a1d0e37c710a92e7a5e9b5c0ee3115fb8a217c9e[m
+Author: Brian Keeley <imbriankeeley@gmail.com>
+Date:   Wed Jul 24 15:26:29 2024 -0400
+
+    Added dependencies for webpack to work with html
+
+[33mcommit 26bc6e7e32313a4cd34c96bc69b5fa6d4d64568e[m
+Author: Brian Keeley <imbriankeeley@gmail.com>
+Date:   Wed Jul 24 15:21:26 2024 -0400
+
+    Renamed file for webpack easy
+    communication
+
+[33mcommit cebebc91b7474485717cb16ccd7c9bf69d09cfbf[m
+Author: Brian Keeley <imbriankeeley@gmail.com>
+Date:   Wed Jul 24 14:18:01 2024 -0400
+
+    Created skeleton for project with predicted files that are needed
+
+[33mcommit 92360f80370b2584a796e3373d8bb86f3241e6db[m
+Author: Brixn <109771702+imbriankeeley@users.noreply.github.com>
+Date:   Wed Jul 24 13:02:34 2024 -0400
+
+    Initial commit
