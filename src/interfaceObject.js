@@ -2,7 +2,6 @@ import { AddProject } from './projectObject.js'
 import { AddTask } from "./taskObject.js";
 import DateFormat from './dateFormat.js'
 import { Dom } from './domObject.js'
-import { generalTasks } from './storage.js';
 
  const format = new DateFormat();
 
@@ -57,8 +56,8 @@ export class InterfaceObject {
         let date = document.getElementById('date').value;
         let description = document.getElementById('description').value;
 
-        const task = new AddTask(generalProject, title, description, date);
-        
+        const task = new AddTask(generalProject, title, description, (date));
+
         console.log(generalProject);
 
         document.getElementById('title').value = '';
