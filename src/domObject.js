@@ -121,6 +121,29 @@ export class Dom {
         overlay.classList.remove('show');
     };    
         
+    removeTasks() {
+        if(taskSection.children.length > 1){
+            taskSection.removeChild(taskSection.firstChild);
+        }
+    }
+
+    selectProject(e) {
+
+        const project = e.target.closest('.projectButton');
+        if (project.classList.contains('selected')) {
+        }
+
+        const selectedButton = document.querySelector('.projectButton.selected');
+        selectedButton.classList.add('un');
+        selectedButton.classList.remove('selected');
+
+        project.classList.add('selected');
+        project.classList.remove('un');
+
+        AddProject.appendTasks(project.id);
+
+    }
+
     // Appends new project to html and switches to a new blank task section
     addProject (title) {
         document.querySelectorAll('.projectButton').forEach(button => {
@@ -139,11 +162,13 @@ export class Dom {
         projectSection.insertBefore(projectButton, projectSection.lastChild)
         projectButton.append(h2);
         
-        if(taskSection.children.length > 1){
+        while(taskSection.children.length > 1){
             taskSection.removeChild(taskSection.firstChild);
         }
 
-        
+        projectButton.addEventListener('click', (e) => {
+            this.selectProject(e);
+        })
 
         const newProject = new AddProject(title);
 

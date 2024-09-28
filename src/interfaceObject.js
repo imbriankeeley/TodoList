@@ -6,13 +6,14 @@ import { Dom } from './domObject.js'
  const format = new DateFormat();
 
 export const generalProject = new AddProject('General Tasks');
-const dom = new Dom();
+export const dom = new Dom();
 const addTask = document.getElementById('addTask');
 const popupForm = document.getElementById('popup-form');
 const overlay = document.getElementById('overlay');
 const cardForm = document.getElementById('card-form');
 const closeForm = document.getElementById('closeFormButton');
 const projectButton = document.getElementById('projectButtonDiv');
+const generalProjectButton = document.getElementById('General Tasks');
 const projectSection = document.getElementById('projectSection');
 const projectForm = document.getElementById('projectForm');
 const details = document.getElementById('details');
@@ -36,6 +37,9 @@ export class InterfaceObject {
 
         cardForm.addEventListener('submit', this.submitTask)
         addTask.addEventListener('click', this.addTask);
+        generalProjectButton.addEventListener('click', (e) => {
+            dom.selectProject(e);
+        })
         projectButton.addEventListener('click', () => {
             projectForm.classList.remove('popup-project-form')
         });
@@ -94,5 +98,7 @@ export class InterfaceObject {
         popupForm.removeEventListener('click', this.closeTaskForm);
         overlay.removeEventListener('click', this.closeOverlay);
     };
+
+
 
 }

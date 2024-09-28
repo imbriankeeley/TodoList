@@ -1,4 +1,5 @@
 import { generalProject } from "./interfaceObject";
+import { dom } from "./interfaceObject"
 const projectDiv = document.getElementById('projectSection');
 
 
@@ -32,6 +33,20 @@ export class AddProject {
 
     addTask(task) {
         this.tasks.push(task);
+    }
+
+
+
+    static appendTasks(title) {
+        const project = AddProject.projects.find(p => p.title === title);
+
+        dom.removeTasks();
+
+        if (project) {
+            project.tasks.forEach(task => {
+                dom.appendTask(title, task.title, task.description, task.date, task.id);
+            })
+        }
     }
 
     static removeTask(projectName, taskId) {
