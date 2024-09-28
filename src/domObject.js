@@ -9,9 +9,7 @@ const selectionTitle = document.getElementById('sTitle');
 const selectionDescription = document.getElementById('sDesc');
 const selectionDate = document.getElementById('sDate');
 const overlay = document.getElementById('overlay');
-const projectButton = document.getElementById('projectButtonDiv');
 const projectSection = document.getElementById('projectSection');
-const projectForm = document.getElementById('projectForm');
 
 
 export class Dom {

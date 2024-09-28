@@ -18,7 +18,6 @@ export class AddTask {
 
             dom.appendTask(projectTitle, title, description, date, this.id)
         
-        
     }
 
 }

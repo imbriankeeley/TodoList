@@ -1,7 +1,6 @@
 import { generalProject } from "./interfaceObject";
 import { DateFormat } from "./dateFormat"
 import { dom } from "./interfaceObject"
-const projectDiv = document.getElementById('projectSection');
 const format = new DateFormat();
 
 

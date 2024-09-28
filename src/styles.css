@@ -244,17 +244,6 @@ button.projectButton:active {
     transform: scale(1.2);
 }
 
-.mediumUrgency {
-    background-color: var(--yellow);
-}
-
-.highUrgency {
-    background-color: var(--red);
-}
-
-
-
-
 .popup-form {
     display: none;
     position: fixed;
@@ -462,8 +451,3 @@ textarea {
 .deleted {
     background-color: var(--red) !important;
 }
-
-
-
-
-

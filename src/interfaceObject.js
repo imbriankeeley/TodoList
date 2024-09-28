@@ -3,7 +3,7 @@ import { AddTask } from "./taskObject.js";
 import DateFormat from './dateFormat.js'
 import { Dom } from './domObject.js'
 
- const format = new DateFormat();
+const format = new DateFormat();
 
 export const generalProject = new AddProject('General Tasks');
 export const dom = new Dom();
@@ -16,13 +16,8 @@ const projectButton = document.getElementById('projectButtonDiv');
 const generalProjectButton = document.getElementById('General Tasks');
 const projectSection = document.getElementById('projectSection');
 const projectForm = document.getElementById('projectForm');
-const details = document.getElementById('details');
-const selectionTitle = document.getElementById('sTitle');
-const selectionDescription = document.getElementById('sDesc');
-const selectionDate = document.getElementById('sDate');
 
 
-// dom.appendTask(generalProject, 'Task 1', 'This is task 1', format.formatDate(new Date()))
 
 export class InterfaceObject {
 
@@ -35,6 +30,7 @@ export class InterfaceObject {
 
     start() {
 
+        // Adding event listeners to all buttons
         cardForm.addEventListener('submit', this.submitTask)
         addTask.addEventListener('click', this.addTask);
         dom.detectMouse(generalProjectButton);
@@ -70,7 +66,6 @@ export class InterfaceObject {
 
     submitTask(event) {
 
-    //Get data from user after a successful sumbit and add card
         event.preventDefault();
 
         let title = document.getElementById('title').value;
@@ -104,7 +99,5 @@ export class InterfaceObject {
         popupForm.removeEventListener('click', this.closeTaskForm);
         overlay.removeEventListener('click', this.closeOverlay);
     };
-
-
 
 }
