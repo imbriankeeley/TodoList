@@ -14,6 +14,3 @@ import { InterfaceObject } from './interfaceObject.js'
 
 const ui = new InterfaceObject();
 ui.start();
-
-
-

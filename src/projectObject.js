@@ -1,6 +1,8 @@
 import { generalProject } from "./interfaceObject";
+import { DateFormat } from "./dateFormat"
 import { dom } from "./interfaceObject"
 const projectDiv = document.getElementById('projectSection');
+const format = new DateFormat();
 
 
 export class AddProject {
@@ -35,7 +37,24 @@ export class AddProject {
         this.tasks.push(task);
     }
 
+    static deleteProject(title) {
+        const project = AddProject.projects.find(p => p.title === title);
 
+        if (project) {
+            const projectIndex = AddProject.projects.findIndex(p => p.title === title);
+            if (projectIndex !== -1) {
+                AddProject.projects.splice(projectIndex, 1);
+                dom.removeProject(title);
+                console.log(`Project ${title} removed`);
+            } else {
+                console.log(`Project ${title} not found`);
+            }
+        } else {
+            console.log(`Project ${title} not found`);
+        }
+
+
+    }
 
     static appendTasks(title) {
         const project = AddProject.projects.find(p => p.title === title);
@@ -44,7 +63,7 @@ export class AddProject {
 
         if (project) {
             project.tasks.forEach(task => {
-                dom.appendTask(title, task.title, task.description, task.date, task.id);
+                dom.appendTask(title, task.title, task.description, format.subDays(task.date), task.id);
             })
         }
     }
@@ -85,35 +104,3 @@ export class AddProject {
         }
     }
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// import { addProjectForm } from "./dom";
-
-// const projectButton = document.getElementById('projectButtonDiv');
-
-// // Opens form to set new project title and adds the project while
-// // creating a blank task section to work from
-// export function addProject() {
-//     while(projectButton.firstChild)
-//     projectButton.removeChild(projectButton.firstChild);
-
-//     if (projectButton) {
-//         addProjectForm();
-//     }
-// }
-
-// export function selectProject() {
-    
-// }

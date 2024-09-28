@@ -37,8 +37,13 @@ export class InterfaceObject {
 
         cardForm.addEventListener('submit', this.submitTask)
         addTask.addEventListener('click', this.addTask);
+        dom.detectMouse(generalProjectButton);
         generalProjectButton.addEventListener('click', (e) => {
-            dom.selectProject(e);
+            if (!(generalProjectButton.classList.contains('deleted'))) {
+                dom.selectProject(e);            
+            } else if (generalProjectButton.classList.contains('deleted')) {
+                if(projectSection.childElementCount > 2) AddProject.deleteProject(generalProjectButton.id);
+            }
         })
         projectButton.addEventListener('click', () => {
             projectForm.classList.remove('popup-project-form')
@@ -50,6 +55,7 @@ export class InterfaceObject {
             projectForm.reset(); 
             dom.addProject(title);
         });
+        
         
 
     };

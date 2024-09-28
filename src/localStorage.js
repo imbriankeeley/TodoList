@@ -8,20 +8,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // import { addCard } from "./dom";
 
 
