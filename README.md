@@ -12,7 +12,7 @@
 
 ![Add Task](./images/addproject.PNG)
 
-![Add Project](./images/addproject.PNG)
+![Add Project](./images/newtask.PNG)
 
 ### You can delete a project by hovering over it for 1 second and then clicking. It will turn red and this will indicate it's ready to be deleted.
 ### If you just click on a project without waiting it will select the project and display all the tasks under that project.
@@ -21,7 +21,7 @@
 
 ### Adding a task will give you a form to fill out like this.
 
-![Task Form](./images/newtask.PNG)
+![Task Form](./images/addtask.PNG)
 
 ### You can easily get a more detailed look at the tasks by clicking the three dots on the top left.
 
@@ -29,5 +29,5 @@
 
 ## Connect with me!
 
-### :linkedin: [Connect with me on LinkedIn](https://www.linkedin.com/in/bkeeley24/)
+### [Connect with me on LinkedIn](https://www.linkedin.com/in/bkeeley24/)
 
