@@ -122,7 +122,7 @@ export class Dom {
     };    
         
     removeTasks() {
-        if(taskSection.children.length > 1){
+        while(taskSection.children.length > 1){
             taskSection.removeChild(taskSection.firstChild);
         }
     }
