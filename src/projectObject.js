@@ -1,7 +1,9 @@
 import { generalProject } from "./interfaceObject";
 import { DateFormat } from "./dateFormat"
 import { dom } from "./interfaceObject"
+import { Storage } from "./localStorage";
 const format = new DateFormat();
+export const storage = new Storage();
 
 
 export class AddProject {
@@ -17,6 +19,8 @@ export class AddProject {
 
         AddProject.projects.push(this);
         console.log(this);
+
+        Storage.update();
     }
 
     getId() {
@@ -34,6 +38,7 @@ export class AddProject {
 
     addTask(task) {
         this.tasks.push(task);
+        Storage.update();
     }
 
     static deleteProject(title) {
@@ -44,6 +49,7 @@ export class AddProject {
             if (projectIndex !== -1) {
                 AddProject.projects.splice(projectIndex, 1);
                 dom.removeProject(title);
+                Storage.update();
                 console.log(`Project ${title} removed`);
             } else {
                 console.log(`Project ${title} not found`);
@@ -74,6 +80,7 @@ export class AddProject {
             const taskIndex = project.tasks.findIndex(task => task.id === parseInt(taskId));
             if (taskIndex !== -1) {
                 project.tasks.splice(taskIndex, 1);
+                Storage.update();
                 console.log(`Task ${taskId} removed from project ${projectName}`);
             } else {
                 console.log(`Task ${taskId} not found in project ${projectName}`);

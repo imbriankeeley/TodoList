@@ -1,5 +1,6 @@
 import { DateFormat } from "./dateFormat";
 import { AddProject } from "./projectObject";
+import { dom } from "./interfaceObject";
 
 export const format = new DateFormat();
 
@@ -211,6 +212,34 @@ export class Dom {
         newProjectSelection.classList.remove('un');
 
         AddProject.appendTasks(newProjectSelection.id);
+    }
+
+    reloadProject(title) {
+        const project = AddProject.projects.find(project => project.title === title);
+
+        let projectButton = document.createElement('button');
+        projectButton.classList.add('projectButton', 'selected');
+        projectButton.id = title;
+        let h2 = document.createElement('h2');
+        h2.innerText = title;
+        
+        projectSection.insertBefore(projectButton, projectSection.lastChild)
+        projectButton.append(h2);
+
+        projectButton.addEventListener('click', (e) => {
+            if (!(projectButton.classList.contains('deleted'))) {
+                this.selectProject(e);                
+            } else if (projectButton.classList.contains('deleted')) {
+                if(projectSection.childElementCount > 2) AddProject.deleteProject(projectButton.id);
+            }
+        })
+        
+        this.detectMouse(projectButton);
+
+        project.forEach(task => {
+            dom.appendTask(task.projectTitle, task.title, task.description, task.date)
+        })
+
     }
     
 }

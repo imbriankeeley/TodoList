@@ -2,6 +2,7 @@ import { AddProject } from './projectObject.js'
 import { AddTask } from "./taskObject.js";
 import DateFormat from './dateFormat.js'
 import { Dom } from './domObject.js'
+import { Storage } from './localStorage.js';
 
 const format = new DateFormat();
 
@@ -18,7 +19,6 @@ const projectSection = document.getElementById('projectSection');
 const projectForm = document.getElementById('projectForm');
 
 
-
 export class InterfaceObject {
 
     constructor() {
@@ -29,6 +29,11 @@ export class InterfaceObject {
     }
 
     start() {
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // On reload
+            Storage.lookup();
+        })
 
         // Adding event listeners to all buttons
         cardForm.addEventListener('submit', this.submitTask)
@@ -53,6 +58,7 @@ export class InterfaceObject {
         });
         
         
+        
 
     };
 
@@ -74,7 +80,7 @@ export class InterfaceObject {
 
         const project = document.querySelector('.projectButton.selected').id;
 
-        const task = new AddTask(project, title, description, (date));
+        const task = new AddTask(project, title, description, date);
 
         console.log(task);
 
