@@ -48,10 +48,14 @@ export class InterfaceObject {
 
     start() {
 
-        document.addEventListener('DOMContentLoaded', () => {
-            // On reload
-            Storage.lookup();
-        })
+
+        if (localStorage.getItem('First Load') === 'false') {
+            document.addEventListener('DOMContentLoaded', () => {
+                // On reload
+                Storage.lookup();
+            })
+        }
+        
 
         // Adding event listeners to all buttons
         cardForm.addEventListener('submit', this.submitTask)
