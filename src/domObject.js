@@ -85,7 +85,7 @@ export class Dom {
     topTaskButtons2.addEventListener('click', (e) => {
         const card = e.target.closest('.card');
         if (card) {
-            AddProject.removeTask('General Tasks', card.id);
+            AddProject.removeTask(project, card.id);
             card.remove();
         }
     })
@@ -94,7 +94,7 @@ export class Dom {
     taskDoneButton.addEventListener('click', (e) => {
         const card = e.target.closest('.card');
         if (card) {
-            AddProject.removeTask('General Tasks', card.id);
+            AddProject.removeTask(project, card.id);
             card.remove();
         }
     })
