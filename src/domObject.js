@@ -243,6 +243,7 @@ export class Dom {
     loadFirstProject() {
         const project = AddProject.projects[0];
         const selectedProject = document.getElementById(project.title);
+        selectedProject.classList.remove('un');
         selectedProject.classList.add('selected');
 
         AddProject.appendTasks(project.title);

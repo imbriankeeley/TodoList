@@ -13,10 +13,6 @@ export class Storage {
         // const projects = AddProject.projects;
         // localStorage.setItem("Projects", projects)
         const projects = JSON.parse(localStorage.getItem("Projects"));
-        if (!(projects.find(project => project.title === "General Tasks"))) {
-            const general = document.getElementById('General Tasks');
-            general.remove();
-        }
 
         projects.forEach(p => {
             const reAddProject = new AddProject(p.title);
@@ -24,9 +20,7 @@ export class Storage {
             reAddProject.taskId = p.taskId;
         })
         AddProject.projects.forEach(project => {
-            if (project !== (AddProject.projects.find(project => project.title === "General Tasks"))) {
                 dom.reloadProject(project.title);
-            }
         });
         dom.loadFirstProject();
 
