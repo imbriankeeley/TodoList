@@ -1,6 +1,6 @@
 import { Dom } from './domObject';
 import { DateFormat } from './dateFormat';
-import { AddProject, storage } from './projectObject';
+import { AddProject } from './projectObject';
 const dom = new Dom();
 const format = new DateFormat();
 

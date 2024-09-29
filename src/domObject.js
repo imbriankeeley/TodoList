@@ -169,7 +169,9 @@ export class Dom {
             if (!(projectButton.classList.contains('deleted'))) {
                 this.selectProject(e);                
             } else if (projectButton.classList.contains('deleted')) {
-                if(projectSection.childElementCount > 2) AddProject.deleteProject(projectButton.id);
+                if(projectSection.childElementCount > 2) {
+                   AddProject.deleteProject(projectButton.id) 
+                };
             }
         })
         
@@ -218,7 +220,7 @@ export class Dom {
         const project = AddProject.projects.find(project => project.title === title);
 
         let projectButton = document.createElement('button');
-        projectButton.classList.add('projectButton', 'selected');
+        projectButton.classList.add('projectButton', 'un');
         projectButton.id = title;
         let h2 = document.createElement('h2');
         h2.innerText = title;
@@ -236,10 +238,15 @@ export class Dom {
         
         this.detectMouse(projectButton);
 
-        project.forEach(task => {
-            dom.appendTask(task.projectTitle, task.title, task.description, task.date)
-        })
+    }
 
+    loadFirstProject() {
+        const project = AddProject.projects[0];
+        const selectedProject = document.getElementById(project.title);
+        selectedProject.classList.remove('un');
+        selectedProject.classList.add('selected');
+
+        AddProject.appendTasks(project.title);
     }
     
 }

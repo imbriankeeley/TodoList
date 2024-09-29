@@ -20,7 +20,11 @@ export class AddProject {
         AddProject.projects.push(this);
         console.log(this);
 
-        Storage.update();
+    }
+
+    static addProject(p) {
+        AddProject.projects.push(p);
+        AddProject.id++;
     }
 
     getId() {
@@ -38,7 +42,7 @@ export class AddProject {
 
     addTask(task) {
         this.tasks.push(task);
-        Storage.update();
+        
     }
 
     static deleteProject(title) {

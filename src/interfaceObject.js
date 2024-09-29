@@ -6,7 +6,25 @@ import { Storage } from './localStorage.js';
 
 const format = new DateFormat();
 
-export const generalProject = new AddProject('General Tasks');
+// localStorage.removeItem('First Load');
+if (localStorage.getItem('First Load') === null) {
+    localStorage.setItem('First Load', 'true');
+}
+
+export let generalProject;
+// export let generalProject = new AddProject('General Tasks');
+
+if (localStorage.getItem('First Load') === 'true') {
+    try {
+        console.log('Attempting to create General Tasks project');
+        generalProject = new AddProject('General Tasks');
+        Storage.update();
+        console.log('General Tasks project created: ', generalProject);
+        localStorage.setItem('First Load', 'false');
+    } catch (error) {
+        console.error('Error creating General Tasks project: ', error);
+    }
+}
 export const dom = new Dom();
 const addTask = document.getElementById('addTask');
 const popupForm = document.getElementById('popup-form');
@@ -38,14 +56,18 @@ export class InterfaceObject {
         // Adding event listeners to all buttons
         cardForm.addEventListener('submit', this.submitTask)
         addTask.addEventListener('click', this.addTask);
-        dom.detectMouse(generalProjectButton);
-        generalProjectButton.addEventListener('click', (e) => {
-            if (!(generalProjectButton.classList.contains('deleted'))) {
-                dom.selectProject(e);            
-            } else if (generalProjectButton.classList.contains('deleted')) {
-                if(projectSection.childElementCount > 2) AddProject.deleteProject(generalProjectButton.id);
-            }
-        })
+
+        if(generalProjectButton) {
+            dom.detectMouse(generalProjectButton);
+            generalProjectButton.addEventListener('click', (e) => {
+                if (!(generalProjectButton.classList.contains('deleted'))) {
+                    dom.selectProject(e);            
+                } else if (generalProjectButton.classList.contains('deleted')) {
+                    if(projectSection.childElementCount > 2) AddProject.deleteProject(generalProjectButton.id);
+                }
+            });
+        }
+        
         projectButton.addEventListener('click', () => {
             projectForm.classList.remove('popup-project-form')
         });
@@ -55,6 +77,7 @@ export class InterfaceObject {
             let title = document.querySelector('#projectName').value;
             projectForm.reset(); 
             dom.addProject(title);
+            Storage.update();
         });
         
         
@@ -90,6 +113,7 @@ export class InterfaceObject {
 
         
         this.closeTaskForm();
+        Storage.update();
     }
 
     closeTaskForm() {
