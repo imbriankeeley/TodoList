@@ -5,10 +5,18 @@ import { Dom } from './domObject.js'
 import { Storage } from './localStorage.js';
 
 const format = new DateFormat();
+export const dom = new Dom();
 
 // localStorage.removeItem('First Load');
 if (localStorage.getItem('First Load') === null) {
     localStorage.setItem('First Load', 'true');
+}
+
+if (localStorage.getItem('First Load') === 'false') {
+    document.addEventListener('DOMContentLoaded', () => {
+        // On reload
+        Storage.lookup();
+    })
 }
 
 export let generalProject;
@@ -19,13 +27,15 @@ if (localStorage.getItem('First Load') === 'true') {
         console.log('Attempting to create General Tasks project');
         generalProject = new AddProject('General Tasks');
         Storage.update();
+        dom.reloadProject('General Tasks');
+        dom.loadFirstProject();
         console.log('General Tasks project created: ', generalProject);
         localStorage.setItem('First Load', 'false');
     } catch (error) {
         console.error('Error creating General Tasks project: ', error);
     }
 }
-export const dom = new Dom();
+
 const addTask = document.getElementById('addTask');
 const popupForm = document.getElementById('popup-form');
 const overlay = document.getElementById('overlay');
@@ -49,12 +59,7 @@ export class InterfaceObject {
     start() {
 
 
-        if (localStorage.getItem('First Load') === 'false') {
-            document.addEventListener('DOMContentLoaded', () => {
-                // On reload
-                Storage.lookup();
-            })
-        }
+        
         
 
         // Adding event listeners to all buttons
