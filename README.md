@@ -27,7 +27,6 @@
 
 ![Details](./images/detailsoftask.PNG)
 
-## Connect with me!
-
-### [Connect with me on LinkedIn](https://www.linkedin.com/in/bkeeley24/)
+## Let's Connect!
+### [LinkedIn](https://www.linkedin.com/in/bkeeley24/)
 
